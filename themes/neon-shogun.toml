@@ -8,22 +8,21 @@ format = """
 right_format = "$status$cmd_duration$time"
 
 [palettes.neon_shogun]
-black      = '#0A0509'
-surface    = '#1A0E14'
-overlay    = '#2B1620'
-foreground = '#F5E9DC'
-dim        = '#7A5A5F'
-crimson    = '#FF1F4C'
-blood      = '#B3082C'
-gold       = '#FFC94A'
-pink       = '#FF3DCE'
-cyan       = '#2EF6FF'
-green      = '#6CFFB0'
-red        = '#FF1F4C'
+black      = '#0C0A0D'
+surface    = '#1C1518'
+overlay    = '#2A1D22'
+foreground = '#E9DCCB'
+dim        = '#6E5A60'
+crimson    = '#8C2F3B'
+blood      = '#5E1F26'
+gold       = '#C4964F'
+pink       = '#B97896'
+cyan       = '#5FA39C'
+green      = '#7FA88C'
 
 [os]
 disabled = false
-style = 'bg:crimson fg:black bold'
+style = 'bg:crimson fg:foreground bold'
 format = '[ $symbol ]($style)'
 
 [os.symbols]
@@ -74,7 +73,7 @@ Zorin = ''
 
 [username]
 show_always = true
-style_user = 'bg:crimson fg:black bold'
+style_user = 'bg:crimson fg:foreground bold'
 style_root = 'bg:gold fg:black bold'
 format = '[( $user )]($style)'
 
@@ -87,7 +86,7 @@ read_only = ' 󰌾'
 
 [git_branch]
 symbol = '󰘬 '
-style = 'bg:crimson fg:black bold'
+style = 'bg:crimson fg:foreground bold'
 format = '[( $symbol$branch )]($style)'
 
 [git_status]
