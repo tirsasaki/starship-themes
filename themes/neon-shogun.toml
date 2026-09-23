@@ -8,19 +8,19 @@ format = """
 right_format = "$status$cmd_duration$time"
 
 [palettes.neon_shogun]
-black = '#16161E'
-surface = '#24283B'
-overlay = '#2F3549'
-foreground = '#C0CAF5'
-dim = '#565F89'
-magenta = '#BB9AF7'
-blue = '#7AA2F7'
-cyan = '#7DCFFF'
-green = '#9ECE6A'
-yellow = '#E0AF68'
-orange = '#FF9E64'
-red = '#F7768E'
-pink = '#F7A8CC'
+black = '#0F111A'
+surface = '#1D2333'
+overlay = '#2B3248'
+foreground = '#EAF2FF'
+dim = '#69779A'
+magenta = '#D9A7FF'
+blue = '#89B4FF'
+cyan = '#76D9FF'
+green = '#9AE6A8'
+yellow = '#F5D88C'
+orange = '#FFB38A'
+red = '#FF7F9F'
+pink = '#F7C6E5'
 
 [os]
 disabled = false
@@ -92,7 +92,7 @@ style = 'bg:blue fg:black bold'
 format = '[ $symbol$branch ]($style)'
 
 [git_status]
-style = 'bg:blue fg:black bold'
+style = 'bg:surface fg:foreground bold'
 format = '[$all_status$ahead_behind ]($style)'
 conflicted = '󰞇 '
 ahead = '⇡${count} '
@@ -108,13 +108,13 @@ stashed = '󰏗${count} '
 [cmd_duration]
 min_time = 1500
 style = 'fg:orange bold'
-format = '[ 󰔟 $duration]($style)'
+format = '[ 󰔟 $duration ]($style)'
 
 [time]
 disabled = false
 time_format = '%H:%M'
 style = 'fg:dim'
-format = '[  󰥔 $time]($style)'
+format = '[  󰥔 $time ]($style)'
 
 [character]
 success_symbol = '[刀](bold fg:magenta)'
@@ -124,4 +124,4 @@ vicmd_symbol = '[侍](bold fg:cyan)'
 [status]
 disabled = false
 style = 'fg:red bold'
-format = '[✘ $status]($style)'
+format = '[✘ $status ]($style)'
