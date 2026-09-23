@@ -46,7 +46,7 @@ The **Style** column shows the prompt model used by each theme.
 | [Oceanic Pulse](#oceanic-pulse) | Developer dashboard | Teal, blue, coral | [`oceanic-pulse.toml`](themes/oceanic-pulse.toml) | ![Oceanic Pulse](assets/previews/oceanic-pulse.png) |
 | [Monochrome Orbit](#monochrome-orbit) | Minimal two-line | White, gray, lavender | [`monochrome-orbit.toml`](themes/monochrome-orbit.toml) | ![Monochrome Orbit](assets/previews/monochrome-orbit.png) |
 
-Preview images are stored in [`assets/previews/`](assets/previews/). Each theme section also includes a text representation of the prompt.
+Preview images are stored in [`assets/previews/`](assets/previews/).
 
 ### Theme design rules
 
@@ -63,13 +63,6 @@ Every completed theme should:
 
 Amethyst Night is a two-line Powerline-style prompt with a purple palette inspired by Dracula. It displays the operating system, user, hostname, directory, Git status, command duration, exit status, time, shell, and detected development tools.
 
-Text preview:
-
-```text
-╭─ 󰣇  tirsasaki  󰒋 cachyos  󰉋 ~/Projects/demo  󰘬 main !
-╰─❯
-```
-
 Included modules:
 
 - automatically detected OS and Linux distribution icons
@@ -82,61 +75,29 @@ Included modules:
 
 A restrained two-line prompt inspired by Japanese wabi-sabi aesthetics. Its indigo, bamboo, matcha, and terracotta palette keeps the directory and Git context distinct, while status, command duration, and time remain quietly aligned on the right.
 
-```text
-╭─  user  󰉋 ~/project  󰘬 main          󰥔 14:32
-╰─刀
-```
-
 ## Frostline
 
 A compact one-line prompt with an ice-blue palette. It keeps the directory, Git state, detected language runtime, and command duration visible without taking another terminal row.
-
-```text
-󰣇  󰉋 ~/project 󰘬 main 󰌠 3.14 ❯
-```
 
 ## Ember Retro
 
 A warm two-line prompt inspired by amber CRT terminals. User and host information sit in a rust-colored block, while the working directory uses a brighter amber segment.
 
-```text
-┌─ 󰀄 user@host  󰉋 ~/project  󰘬 main
-└─>
-```
-
 ## Sakura Dawn
 
 A soft pink and lavender one-line theme intended for bright or pastel terminal backgrounds. Git status uses small blossom markers to keep the layout light.
-
-```text
-󰣇  󰉋 ~/project  main ✿! ❯
-```
 
 ## Void Circuit
 
 The smallest theme in the collection. It shows only the current directory, Git context, prompt character, and right-aligned failure or duration information.
 
-```text
-~/project main ~ ›
-```
-
 ## Oceanic Pulse
 
 A developer dashboard with project and Git context on the left, plus language runtimes, Docker, Kubernetes, command duration, and time on the right when detected.
 
-```text
-󰣇  󰉋 ~/api  󰘬 feature/auth       󰌠 3.14 󰡨 dev 󱃾 local 14:32
-❯
-```
-
 ## Monochrome Orbit
 
 A restrained two-line prompt using grayscale and one lavender accent. It remains readable in low-color setups while retaining clear success and error states.
-
-```text
-╭─󰣇 ~/project git:main !
-╰─●
-```
 
 ## Requirements
 
