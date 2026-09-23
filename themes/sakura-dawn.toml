@@ -2,7 +2,7 @@
 add_newline = false
 palette = 'sakura_dawn'
 
-format = "$os$username$directory$git_branch$git_status$cmd_duration$character"
+format = "$os$username$directory$git_branch$git_status$cmd_duration$status$character"
 
 [palettes.sakura_dawn]
 ink = '#4A4158'
@@ -79,13 +79,13 @@ truncation_symbol = '…/'
 read_only = ' 󰌾'
 
 [git_branch]
-symbol = ' '
+symbol = ' '
 style = 'fg:lavender bold'
 format = '[$symbol$branch ]($style)'
 
 [git_status]
 style = 'fg:pink'
-format = '[$all_status$ahead_behind]($style)'
+format = '[$all_status$ahead_behind ]($style)'
 untracked = '✿? '
 modified = '✿! '
 staged = '✿+ '
@@ -105,5 +105,5 @@ vicmd_symbol = '[❮](bold fg:lavender)'
 
 [status]
 disabled = false
-style = 'fg:red'
+style = 'fg:red bold'
 format = '[✘$status ]($style)'
