@@ -1,22 +1,24 @@
 "$schema" = 'https://starship.rs/config-schema.json'
-add_newline = false
+add_newline = true
 palette = 'sakura_dawn'
 
 format = "$os$username$directory$git_branch$git_status$cmd_duration$status$character"
 
 [palettes.sakura_dawn]
-ink = '#4A4158'
-soft_gray = '#81778C'
-light = '#FFF7FB'
-pink = '#E889B5'
-blossom = '#F4A7C5'
-lavender = '#A78BCA'
-green = '#6FAF8F'
-red = '#C85C70'
+ink = '#2E2432'
+rose = '#E889B5'
+blush = '#F6C8D8'
+petal = '#F9EAF3'
+lavender = '#B79AE8'
+soft_gray = '#7D6E82'
+mist = '#FFF8FB'
+leaf = '#7FAF97'
+peach = '#F2C39B'
+red = '#D86A7A'
 
 [os]
 disabled = false
-style = 'fg:pink bold'
+style = 'fg:rose bold'
 format = '[$symbol ]($style)'
 
 [os.symbols]
@@ -67,7 +69,7 @@ Zorin = ''
 
 [username]
 show_always = false
-style_user = 'fg:soft_gray'
+style_user = 'fg:soft_gray bold'
 style_root = 'fg:red bold'
 format = '[$user ]($style)'
 
@@ -79,16 +81,16 @@ truncation_symbol = '…/'
 read_only = ' 󰌾'
 
 [git_branch]
-symbol = ' '
+symbol = ' '
 style = 'fg:lavender bold'
 format = '[$symbol$branch ]($style)'
 
 [git_status]
-style = 'fg:pink'
+style = 'fg:rose'
 format = '[$all_status$ahead_behind ]($style)'
-untracked = '✿? '
-modified = '✿! '
-staged = '✿+ '
+untracked = '✦? '
+modified = '✦! '
+staged = '✦+ '
 ahead = '⇡${count} '
 behind = '⇣${count} '
 deleted = '✘ '
@@ -99,7 +101,7 @@ style = 'fg:soft_gray'
 format = '[󰔟 $duration ]($style)'
 
 [character]
-success_symbol = '[❯](bold fg:blossom)'
+success_symbol = '[❯](bold fg:rose)'
 error_symbol = '[❯](bold fg:red)'
 vicmd_symbol = '[❮](bold fg:lavender)'
 
