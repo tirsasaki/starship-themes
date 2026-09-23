@@ -1,0 +1,151 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+command_timeout = 1000
+scan_timeout = 30
+palette = 'amethyst_night'
+
+format = """
+[╭─](fg:purple)$os$username$hostname$directory$git_branch$git_status$cmd_duration
+[╰─](fg:purple)$character"""
+right_format = "$all"
+
+[palettes.amethyst_night]
+background = '#282A36'
+current_line = '#44475A'
+foreground = '#F8F8F2'
+comment = '#6272A4'
+cyan = '#8BE9FD'
+green = '#50FA7B'
+orange = '#FFB86C'
+pink = '#FF79C6'
+purple = '#BD93F9'
+red = '#FF5555'
+yellow = '#F1FA8C'
+
+[os]
+disabled = false
+style = 'bg:purple fg:background'
+format = '[ $symbol ]($style)'
+
+[os.symbols]
+Arch = '󰣇'
+CachyOS = '󰣇'
+EndeavourOS = '󰣇'
+Linux = '󰌽'
+Unknown = '󰘧'
+
+[username]
+show_always = true
+style_user = 'bg:current_line fg:cyan'
+style_root = 'bg:current_line fg:red'
+format = '[ $user ]($style)'
+
+[hostname]
+ssh_only = false
+style = 'bg:current_line fg:pink'
+format = '[󰒋 $hostname ]($style)'
+
+[directory]
+style = 'bg:current_line fg:foreground'
+format = '[ 󰉋 $path ]($style)'
+truncation_length = 3
+truncation_symbol = '…/'
+read_only = ' 󰌾'
+read_only_style = 'bg:current_line fg:red'
+
+[directory.substitutions]
+'~' = '󰋜 ~'
+'Documents' = '󰈙 Documents'
+'Downloads' = '󰇚 Downloads'
+'Pictures' = '󰉏 Pictures'
+'Projects' = '󰲋 Projects'
+
+[git_branch]
+symbol = '󰘬 '
+style = 'bg:current_line fg:purple'
+format = '[ $symbol$branch ]($style)'
+
+[git_status]
+style = 'bg:current_line fg:orange'
+format = '[$all_status$ahead_behind ]($style)'
+conflicted = '󰞇 '
+ahead = '⇡${count} '
+behind = '⇣${count} '
+diverged = '⇕ '
+untracked = '? '
+modified = '! '
+staged = '+ '
+renamed = '» '
+deleted = '✘ '
+stashed = '󰏗 '
+
+[cmd_duration]
+min_time = 2000
+style = 'bg:current_line fg:yellow'
+format = '[ 󰔟 $duration ]($style)'
+show_milliseconds = true
+
+[character]
+success_symbol = '[❯](bold fg:green)'
+error_symbol = '[❯](bold fg:red)'
+vicmd_symbol = '[❮](bold fg:cyan)'
+
+[line_break]
+disabled = false
+
+[status]
+disabled = false
+style = 'bg:red fg:background'
+format = '[ ✘ $status ]($style)'
+
+[shell]
+disabled = false
+style = 'bg:current_line fg:comment'
+format = '[ $indicator ]($style)'
+zsh_indicator = '󰆍'
+
+[time]
+disabled = false
+time_format = '%H:%M'
+style = 'bg:current_line fg:comment'
+format = '[ 󰥔 $time ]($style)'
+
+[python]
+symbol = '󰌠 '
+style = 'fg:cyan'
+format = '[ $symbol$pyenv_prefix$version(\\($virtualenv\\)) ]($style)'
+
+[nodejs]
+symbol = '󰎙 '
+style = 'fg:green'
+format = '[ $symbol$version ]($style)'
+
+[rust]
+symbol = '󱘗 '
+style = 'fg:orange'
+format = '[ $symbol$version ]($style)'
+
+[golang]
+symbol = '󰟓 '
+style = 'fg:cyan'
+format = '[ $symbol$version ]($style)'
+
+[docker_context]
+symbol = '󰡨 '
+style = 'fg:cyan'
+format = '[ $symbol$context ]($style)'
+
+[kubernetes]
+symbol = '󱃾 '
+style = 'fg:cyan'
+format = '[ $symbol$context ]($style)'
+
+[terraform]
+symbol = '󱁢 '
+style = 'fg:purple'
+format = '[ $symbol$workspace ]($style)'
+
+[aws]
+symbol = '󰸏 '
+style = 'fg:orange'
+format = '[ $symbol$profile(\\($region\\)) ]($style)'
