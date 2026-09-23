@@ -205,69 +205,53 @@ CachyOS = ''
 
 ## Installation
 
-### Clone the collection
+Install the default **Neon Shogun** theme with one command:
 
 ```bash
-git clone https://github.com/tirsasaki/starship-themes.git
-cd starship-themes
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh
 ```
 
-Back up an existing Starship configuration before installing a theme:
+Install a specific theme by adding its name:
 
 ```bash
-[ -f ~/.config/starship.toml ] && \
-  cp ~/.config/starship.toml ~/.config/starship.toml.backup
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- amethyst-night
 ```
 
-Copy the theme you want. For Amethyst Night:
+The installer:
+
+- downloads and validates the selected theme
+- backs up an existing `starship.toml` with a timestamp
+- installs it to `${XDG_CONFIG_HOME:-~/.config}/starship.toml`
+- enables Starship automatically for Zsh, Bash, or Fish
+- leaves existing shell integration unchanged when it is already configured
+
+Starship itself must already be installed. Open a new terminal after installation to load the prompt.
+
+### Available theme names
+
+```text
+amethyst-night
+ember-retro
+frostline
+monochrome-orbit
+neon-shogun
+oceanic-pulse
+sakura-dawn
+void-circuit
+```
+
+List them from the installer at any time:
 
 ```bash
-mkdir -p ~/.config
-cp themes/amethyst-night.toml ~/.config/starship.toml
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- --list
 ```
-
-### Download one theme
-
-You can install a theme without cloning the repository. Replace `THEME` with a filename from the [theme catalog](#theme-catalog):
-
-```bash
-THEME="amethyst-night"
-mkdir -p ~/.config
-curl -fsSL \
-  "https://raw.githubusercontent.com/tirsasaki/starship-themes/main/themes/${THEME}.toml" \
-  -o ~/.config/starship.toml
-```
-
-## Enable Starship in Zsh
-
-Add this line to `~/.zshrc`:
-
-```zsh
-eval "$(starship init zsh)"
-```
-
-Reload Zsh:
-
-```bash
-exec zsh
-```
-
-Opening a new terminal window also reloads the configuration.
 
 ## Switch themes
 
-If you cloned the repository, copy another theme over the active configuration:
+Run the installer again with a different theme name. Your current configuration is backed up automatically:
 
 ```bash
-cp themes/THEME-NAME.toml ~/.config/starship.toml
-exec zsh
-```
-
-Replace `THEME-NAME` with the filename listed in the catalog. For example:
-
-```bash
-cp themes/amethyst-night.toml ~/.config/starship.toml
-exec zsh
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- frostline
 ```
 
 ## Verify a theme
@@ -284,19 +268,12 @@ Test a repository theme before installing it:
 STARSHIP_CONFIG="$PWD/themes/amethyst-night.toml" starship prompt
 ```
 
-## Update the collection
+## Update an installed theme
 
-From the cloned repository:
-
-```bash
-git pull --ff-only
-```
-
-Updates do not overwrite `~/.config/starship.toml`. Copy the selected theme again when you want to apply its latest version:
+Run the installer again with the same theme name. It downloads the current version and backs up your installed configuration before replacing it:
 
 ```bash
-cp themes/amethyst-night.toml ~/.config/starship.toml
-exec zsh
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- neon-shogun
 ```
 
 ## Customize a theme
@@ -317,12 +294,14 @@ cp ~/.config/starship.toml ~/my-starship-theme.toml
 
 ## Restore the previous configuration
 
-If you created a backup during installation:
+The installer creates timestamped backups next to `starship.toml`. List them, then restore the one you want:
 
 ```bash
-mv ~/.config/starship.toml.backup ~/.config/starship.toml
-exec zsh
+ls -1 ~/.config/starship.toml.backup-*
+cp ~/.config/starship.toml.backup-YYYYMMDD-HHMMSS ~/.config/starship.toml
 ```
+
+Open a new terminal after restoring it.
 
 To remove the active theme without restoring another configuration:
 
@@ -346,6 +325,7 @@ starship-themes/
 │   ├── oceanic-pulse.toml
 │   ├── sakura-dawn.toml
 │   └── void-circuit.toml
+├── install.sh             # One-command installer
 ├── LICENSE
 └── README.md
 ```
