@@ -1,28 +1,37 @@
-# Amethyst Night for Starship
+# Starship Themes
 
-A purple Powerline-style prompt for [Starship](https://starship.rs), inspired by the Dracula color palette.
+A collection of custom themes for [Starship](https://starship.rs). Each theme is distributed as a standalone TOML file, so you can install one without copying the rest of the repository.
 
-Amethyst Night uses a compact two-line layout with Nerd Font icons. It shows the operating system, user, hostname, working directory, Git state, command duration, exit status, time, shell, and detected development tools.
+The collection currently focuses on Zsh and Nerd Font icons. More themes, color palettes, layouts, and shell styles can be added over time.
 
-## Preview
+## Theme catalog
+
+| Theme | Style | Colors | Configuration | Preview |
+| --- | --- | --- | --- | --- |
+| [Amethyst Night](#amethyst-night) | Two-line Powerline | Purple, Dracula-inspired | [`themes/amethyst-night.toml`](themes/amethyst-night.toml) | Image coming soon |
+
+Preview images will be stored in [`assets/previews/`](assets/previews/). Until an image is available, each theme section includes a text representation of the prompt.
+
+## Amethyst Night
+
+Amethyst Night is a two-line Powerline-style prompt with a purple palette inspired by Dracula. It displays the operating system, user, hostname, directory, Git status, command duration, exit status, time, shell, and detected development tools.
+
+Text preview:
 
 ```text
 ╭─ 󰣇  tirsasaki  󰒋 cachyos  󰉋 ~/Projects/demo  󰘬 main !
 ╰─❯
 ```
 
-Colors and icons depend on your terminal and font.
+Included modules:
 
-## Features
-
-- Dracula-inspired purple palette
-- two-line Powerline-style prompt
 - Arch Linux, CachyOS, EndeavourOS, and generic Linux icons
 - Git branch and working-tree status
 - command duration and exit status
-- right-side modules for time, shell, and development tools
-- Python, Node.js, Rust, Go, Docker, Kubernetes, Terraform, and AWS modules
+- Python, Node.js, Rust, Go, Docker, Kubernetes, Terraform, and AWS
 - success, error, and Vim-mode indicators
+
+Configuration: [`themes/amethyst-night.toml`](themes/amethyst-night.toml)
 
 ## Requirements
 
@@ -36,33 +45,38 @@ Select the Nerd Font in your terminal emulator. Installing it without selecting 
 
 ## Installation
 
-### Automatic installation
-
-Clone the repository and copy the theme:
+### Clone the collection
 
 ```bash
-git clone https://github.com/tirsasaki/amethyst-night-starship.git
-cd amethyst-night-starship
+git clone https://github.com/tirsasaki/starship-themes.git
+cd starship-themes
+```
+
+Back up an existing Starship configuration before installing a theme:
+
+```bash
+[ -f ~/.config/starship.toml ] && \
+  cp ~/.config/starship.toml ~/.config/starship.toml.backup
+```
+
+Copy the theme you want. For Amethyst Night:
+
+```bash
 mkdir -p ~/.config
 cp themes/amethyst-night.toml ~/.config/starship.toml
 ```
 
-If you already have a Starship configuration, back it up first:
+### Download one theme
+
+You can install a theme without cloning the repository. Replace `THEME` with a filename from the [theme catalog](#theme-catalog):
 
 ```bash
-cp ~/.config/starship.toml ~/.config/starship.toml.backup
-```
-
-### Download only the theme
-
-```bash
+THEME="amethyst-night"
 mkdir -p ~/.config
 curl -fsSL \
-  https://raw.githubusercontent.com/tirsasaki/amethyst-night-starship/main/themes/amethyst-night.toml \
+  "https://raw.githubusercontent.com/tirsasaki/starship-themes/main/themes/${THEME}.toml" \
   -o ~/.config/starship.toml
 ```
-
-The raw URL becomes available after the pull request is merged into `main`.
 
 ## Enable Starship in Zsh
 
@@ -78,55 +92,68 @@ Reload Zsh:
 exec zsh
 ```
 
-You can also open a new terminal window.
+Opening a new terminal window also reloads the configuration.
 
-## Verify the configuration
+## Switch themes
 
-Check that Starship can parse the theme:
-
-```bash
-starship print-config >/dev/null && echo "Amethyst Night loaded"
-```
-
-Check the installed versions:
+If you cloned the repository, copy another theme over the active configuration:
 
 ```bash
-starship --version
-zsh --version
+cp themes/THEME-NAME.toml ~/.config/starship.toml
+exec zsh
 ```
 
-## Update
+Replace `THEME-NAME` with the filename listed in the catalog. For example:
+
+```bash
+cp themes/amethyst-night.toml ~/.config/starship.toml
+exec zsh
+```
+
+## Verify a theme
+
+Check the active configuration:
+
+```bash
+starship print-config >/dev/null && echo "Starship theme loaded"
+```
+
+Test a repository theme before installing it:
+
+```bash
+STARSHIP_CONFIG="$PWD/themes/amethyst-night.toml" starship prompt
+```
+
+## Update the collection
 
 From the cloned repository:
 
 ```bash
 git pull --ff-only
+```
+
+Updates do not overwrite `~/.config/starship.toml`. Copy the selected theme again when you want to apply its latest version:
+
+```bash
 cp themes/amethyst-night.toml ~/.config/starship.toml
 exec zsh
 ```
 
-## Customize
+## Customize a theme
 
-Edit:
+Edit the installed configuration:
 
 ```text
 ~/.config/starship.toml
 ```
 
-The palette is under `[palettes.amethyst_night]`. For example, change the main purple color with:
+For Amethyst Night, the colors are defined under `[palettes.amethyst_night]`. Changing this local file does not modify the repository copy.
 
-```toml
-purple = '#BD93F9'
+To keep a customized version, give it a separate filename before pulling repository updates:
+
+```bash
+cp ~/.config/starship.toml ~/my-starship-theme.toml
 ```
-
-To hide the hostname on local sessions and show it only over SSH:
-
-```toml
-[hostname]
-ssh_only = true
-```
-
-To return to a one-line prompt, replace the top-level `format` value with your preferred Starship format.
 
 ## Restore the previous configuration
 
@@ -137,11 +164,58 @@ mv ~/.config/starship.toml.backup ~/.config/starship.toml
 exec zsh
 ```
 
-To remove the theme without restoring another configuration:
+To remove the active theme without restoring another configuration:
 
 ```bash
 rm ~/.config/starship.toml
 exec zsh
+```
+
+## Repository structure
+
+```text
+starship-themes/
+├── assets/
+│   └── previews/           # Theme screenshots
+├── themes/
+│   └── amethyst-night.toml
+├── LICENSE
+└── README.md
+```
+
+New themes should use a lowercase kebab-case filename, for example `violet-dawn.toml`. Its preview image should use the same base name, such as `assets/previews/violet-dawn.png`.
+
+## Adding a theme
+
+To add another theme:
+
+1. Place the tested Starship configuration in `themes/<theme-name>.toml`.
+2. Place its screenshot in `assets/previews/<theme-name>.png`.
+3. Add it to the theme catalog.
+4. Add a short section describing its layout, palette, and notable modules.
+5. Test it with:
+
+```bash
+STARSHIP_CONFIG="$PWD/themes/<theme-name>.toml" starship print-config >/dev/null
+STARSHIP_CONFIG="$PWD/themes/<theme-name>.toml" starship prompt
+```
+
+Submit additions through a pull request so the configuration and preview can be reviewed together.
+
+## Preview image guidelines
+
+Use PNG or WebP. Crop the image to the terminal area, keep text readable, and avoid including private paths, usernames, hostnames, tokens, or command history.
+
+Recommended naming:
+
+```text
+assets/previews/<theme-name>.png
+```
+
+After uploading an image, replace `Image coming soon` in the catalog with:
+
+```markdown
+![Theme Name](assets/previews/theme-name.png)
 ```
 
 ## Troubleshooting
@@ -160,16 +234,16 @@ grep -n "starship init zsh" ~/.zshrc
 
 If the command returns nothing, add the initialization line from the Zsh section above.
 
-### The prompt reports a configuration error
+### A theme reports a configuration error
 
-Run:
+Run Starship with the affected file:
 
 ```bash
-starship print-config
+STARSHIP_CONFIG="$PWD/themes/amethyst-night.toml" starship print-config
 ```
 
-Starship will print the parsing error and its location. Replace the local file with an unmodified copy of `themes/amethyst-night.toml` if needed.
+Starship will print the parsing error and its location. Replace the local configuration with an unmodified theme file if needed.
 
 ## License
 
-Amethyst Night is available under the [MIT License](LICENSE).
+The themes in this repository are available under the [MIT License](LICENSE).
