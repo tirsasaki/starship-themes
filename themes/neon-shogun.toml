@@ -3,7 +3,7 @@ add_newline = true
 palette = 'neon_shogun'
 
 format = """
-[╭─](fg:dim)[](fg:magenta)$os$username[](fg:magenta bg:surface)$directory[](bg:surface fg:blue)$git_branch$git_status[](fg:blue)
+[╭─](fg:dim)[](fg:magenta)$os$username[](fg:magenta bg:surface)$directory[](bg:surface fg:magenta)$git_branch$git_status[](fg:magenta)
 [╰─](fg:dim)$character"""
 right_format = "$status$cmd_duration$time"
 
@@ -77,11 +77,11 @@ Zorin = ''
 show_always = true
 style_user = 'bg:magenta fg:black bold'
 style_root = 'bg:red fg:black bold'
-format = '[$user ]($style)'
+format = '[( $user )]($style)'
 
 [directory]
 style = 'bg:surface fg:foreground bold'
-format = '[ 󰉋 $path ]($style)'
+format = '[( 󰉋 $path )]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
 read_only = ' 󰌾'
@@ -89,7 +89,7 @@ read_only = ' 󰌾'
 [git_branch]
 symbol = '󰘬 '
 style = 'bg:magenta fg:black bold'
-format = '[ $symbol$branch ]($style)'
+format = '[( $symbol$branch )]($style)'
 
 [git_status]
 style = 'bg:surface fg:magenta bold'
