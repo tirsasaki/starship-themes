@@ -8,24 +8,31 @@ The collection currently focuses on Zsh and Nerd Font icons. More themes, color 
 
 | Theme | Style | Colors | Configuration | Preview |
 | --- | --- | --- | --- | --- |
-| [Amethyst Night](#amethyst-night) | Two-line Powerline | Purple, Dracula-inspired | [`themes/amethyst-night.toml`](themes/amethyst-night.toml) | Image coming soon |
+| [Amethyst Night](#amethyst-night) | Two-line Powerline | Purple, pink, cyan | [`amethyst-night.toml`](themes/amethyst-night.toml) | Image coming soon |
+| [Neon Shogun](#neon-shogun) | Two-line segmented | Magenta, electric blue, black | [`neon-shogun.toml`](themes/neon-shogun.toml) | Image coming soon |
+| [Frostline](#frostline) | Compact one-line | Ice blue, navy, white | [`frostline.toml`](themes/frostline.toml) | Image coming soon |
+| [Ember Retro](#ember-retro) | Two-line block | Amber, rust, cream | [`ember-retro.toml`](themes/ember-retro.toml) | Image coming soon |
+| [Sakura Dawn](#sakura-dawn) | Compact one-line | Soft pink, lavender, gray | [`sakura-dawn.toml`](themes/sakura-dawn.toml) | Image coming soon |
+| [Void Circuit](#void-circuit) | Minimal one-line | Lime, cyan, near-black | [`void-circuit.toml`](themes/void-circuit.toml) | Image coming soon |
+| [Oceanic Pulse](#oceanic-pulse) | Developer dashboard | Teal, blue, coral | [`oceanic-pulse.toml`](themes/oceanic-pulse.toml) | Image coming soon |
+| [Monochrome Orbit](#monochrome-orbit) | Minimal two-line | White, gray, lavender | [`monochrome-orbit.toml`](themes/monochrome-orbit.toml) | Image coming soon |
 
-Preview images will be stored in [`assets/previews/`](assets/previews/). Until an image is available, each completed theme section includes a text representation of the prompt.
+Preview images will be stored in [`assets/previews/`](assets/previews/). Until an image is available, each theme section includes a text representation of the prompt.
 
-## Planned themes
+## Theme collection
 
-The roadmap below separates released themes from concepts that still need a TOML configuration and preview. Names, colors, and layouts can be adjusted during implementation.
+All eight themes are available as standalone TOML files. Their layouts cover compact prompts, decorative Powerline segments, dashboard-style runtime information, dark palettes, and a light-terminal option.
 
-| Theme | Status | Prompt model | Main colors | Character |
-| --- | --- | --- | --- | --- |
-| **Amethyst Night** | Available | Two-line Powerline | Purple, pink, cyan | Dark Dracula-inspired developer prompt |
-| **Neon Shogun** | Planned | Two-line segmented | Magenta, electric blue, black | Bright cyberpunk prompt with strong Git indicators |
-| **Frostline** | Planned | Compact one-line | Ice blue, navy, white | Clean Nord-inspired prompt for daily use |
-| **Ember Retro** | Planned | Two-line block | Amber, rust, cream | Warm terminal look inspired by old monitors |
-| **Sakura Dawn** | Planned | Compact one-line | Soft pink, lavender, light gray | Light theme for bright terminal backgrounds |
-| **Void Circuit** | Planned | Minimal/transient | Lime, cyan, near-black | Fast, sparse prompt with only contextual modules |
-| **Oceanic Pulse** | Planned | Developer dashboard | Teal, blue, coral | Information-rich prompt for projects and containers |
-| **Monochrome Orbit** | Planned | Minimal two-line | White, gray, one accent color | Distraction-free prompt that also works without rich colors |
+| Theme | Status | Prompt model | Best suited for |
+| --- | --- | --- | --- |
+| **Amethyst Night** | Available | Two-line Powerline | A balanced, information-rich daily prompt |
+| **Neon Shogun** | Available | Two-line segmented | A bold cyberpunk terminal setup |
+| **Frostline** | Available | Compact one-line | Small terminals and maximum output space |
+| **Ember Retro** | Available | Two-line block | Warm retro terminal palettes |
+| **Sakura Dawn** | Available | Compact one-line | Light or pastel terminal backgrounds |
+| **Void Circuit** | Available | Minimal one-line | Fast, low-noise command sessions |
+| **Oceanic Pulse** | Available | Developer dashboard | Runtimes, containers, and cloud workflows |
+| **Monochrome Orbit** | Available | Minimal two-line | A restrained prompt with one accent color |
 
 ### Prompt models
 
@@ -37,7 +44,7 @@ Everything stays on one line. This model works well in small terminal windows an
 󰣇  ~/Projects/demo  󰘬 main +2 ❯
 ```
 
-Planned themes: **Frostline** and **Sakura Dawn**.
+Themes using this model: **Frostline** and **Sakura Dawn**.
 
 #### Two-line Powerline
 
@@ -48,7 +55,7 @@ Context appears on the first line and the input character stays on a clean secon
 ╰─❯
 ```
 
-Available theme: **Amethyst Night**. Planned theme: **Ember Retro**.
+Themes using this model: **Amethyst Night** and **Ember Retro**.
 
 #### Two-line segmented
 
@@ -59,7 +66,7 @@ Modules use stronger visual separation and contrasting colors. This model favors
 ╰─❯
 ```
 
-Planned theme: **Neon Shogun**.
+Theme using this model: **Neon Shogun**.
 
 #### Developer dashboard
 
@@ -70,17 +77,17 @@ The left side keeps location and Git information while the right side shows acti
 ❯
 ```
 
-Planned theme: **Oceanic Pulse**.
+Theme using this model: **Oceanic Pulse**.
 
-#### Minimal/transient
+#### Minimal
 
-The normal prompt shows only essential context. Previous prompts can collapse after a command runs, keeping long sessions easy to scan. Transient behavior may require shell integration in addition to the Starship TOML file.
+This model shows only essential context, keeping long sessions easy to scan. Void Circuit stays on one line, while Monochrome Orbit places the input character on a second line.
 
 ```text
-~/project main ❯
+~/project main ›
 ```
 
-Planned themes: **Void Circuit** and **Monochrome Orbit**.
+Themes using this model: **Void Circuit** and **Monochrome Orbit**.
 
 ### Theme design rules
 
@@ -113,6 +120,80 @@ Included modules:
 - success, error, and Vim-mode indicators
 
 Configuration: [`themes/amethyst-night.toml`](themes/amethyst-night.toml)
+
+## Neon Shogun
+
+A high-contrast cyberpunk prompt built from magenta and electric-blue Powerline segments. Git changes are deliberately prominent, and the prompt character uses a katana-inspired symbol.
+
+```text
+╭─ 󰣇 user  󰉋 ~/project  󰘬 main ! 
+╰─刀
+```
+
+Configuration: [`themes/neon-shogun.toml`](themes/neon-shogun.toml)
+
+## Frostline
+
+A compact one-line prompt with an ice-blue palette. It keeps the directory, Git state, detected language runtime, and command duration visible without taking another terminal row.
+
+```text
+󰣇  󰉋 ~/project 󰘬 main 󰌠 3.14 ❯
+```
+
+Configuration: [`themes/frostline.toml`](themes/frostline.toml)
+
+## Ember Retro
+
+A warm two-line prompt inspired by amber CRT terminals. User and host information sit in a rust-colored block, while the working directory uses a brighter amber segment.
+
+```text
+┌─ 󰀄 user@host  󰉋 ~/project  󰘬 main
+└─>
+```
+
+Configuration: [`themes/ember-retro.toml`](themes/ember-retro.toml)
+
+## Sakura Dawn
+
+A soft pink and lavender one-line theme intended for bright or pastel terminal backgrounds. Git status uses small blossom markers to keep the layout light.
+
+```text
+󰣇  󰉋 ~/project  main ✿! ❯
+```
+
+Configuration: [`themes/sakura-dawn.toml`](themes/sakura-dawn.toml)
+
+## Void Circuit
+
+The smallest theme in the collection. It shows only the current directory, Git context, prompt character, and right-aligned failure or duration information.
+
+```text
+~/project main ~ ›
+```
+
+Configuration: [`themes/void-circuit.toml`](themes/void-circuit.toml)
+
+## Oceanic Pulse
+
+A developer dashboard with project and Git context on the left, plus language runtimes, Docker, Kubernetes, command duration, and time on the right when detected.
+
+```text
+󰣇  󰉋 ~/api  󰘬 feature/auth       󰌠 3.14 󰡨 dev 󱃾 local 14:32
+❯
+```
+
+Configuration: [`themes/oceanic-pulse.toml`](themes/oceanic-pulse.toml)
+
+## Monochrome Orbit
+
+A restrained two-line prompt using grayscale and one lavender accent. It remains readable in low-color setups while retaining clear success and error states.
+
+```text
+╭─󰣇 ~/project git:main !
+╰─●
+```
+
+Configuration: [`themes/monochrome-orbit.toml`](themes/monochrome-orbit.toml)
 
 ## Requirements
 
@@ -259,7 +340,14 @@ starship-themes/
 ├── assets/
 │   └── previews/           # Theme screenshots
 ├── themes/
-│   └── amethyst-night.toml
+│   ├── amethyst-night.toml
+│   ├── ember-retro.toml
+│   ├── frostline.toml
+│   ├── monochrome-orbit.toml
+│   ├── neon-shogun.toml
+│   ├── oceanic-pulse.toml
+│   ├── sakura-dawn.toml
+│   └── void-circuit.toml
 ├── LICENSE
 └── README.md
 ```

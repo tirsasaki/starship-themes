@@ -1,0 +1,83 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+palette = 'frostline'
+
+format = "$os$directory$git_branch$git_status$python$nodejs$rust$golang$cmd_duration$character"
+
+[palettes.frostline]
+navy = '#2E3440'
+slate = '#3B4252'
+white = '#ECEFF4'
+ice = '#88C0D0'
+blue = '#5E81AC'
+green = '#A3BE8C'
+yellow = '#EBCB8B'
+red = '#BF616A'
+
+[os]
+disabled = false
+style = 'fg:ice bold'
+format = '[$symbol ]($style)'
+
+[os.symbols]
+Arch = '󰣇'
+CachyOS = '󰣇'
+EndeavourOS = '󰣇'
+Linux = '󰌽'
+
+[directory]
+style = 'fg:white bold'
+format = '[󰉋 $path ]($style)'
+truncation_length = 2
+truncation_symbol = '…/'
+read_only = ' 󰌾'
+
+[git_branch]
+symbol = '󰘬 '
+style = 'fg:ice'
+format = '[$symbol$branch ]($style)'
+
+[git_status]
+style = 'fg:yellow'
+format = '[$all_status$ahead_behind]($style)'
+ahead = '⇡${count} '
+behind = '⇣${count} '
+untracked = '? '
+modified = '! '
+staged = '+ '
+deleted = '✘ '
+
+[python]
+symbol = '󰌠 '
+style = 'fg:blue'
+format = '[$symbol$version ]($style)'
+
+[nodejs]
+symbol = '󰎙 '
+style = 'fg:green'
+format = '[$symbol$version ]($style)'
+
+[rust]
+symbol = '󱘗 '
+style = 'fg:yellow'
+format = '[$symbol$version ]($style)'
+
+[golang]
+symbol = '󰟓 '
+style = 'fg:ice'
+format = '[$symbol$version ]($style)'
+
+[cmd_duration]
+min_time = 2000
+style = 'fg:slate'
+format = '[󰔟 $duration ]($style)'
+
+[character]
+success_symbol = '[❯](bold fg:ice)'
+error_symbol = '[❯](bold fg:red)'
+vicmd_symbol = '[❮](bold fg:blue)'
+
+[status]
+disabled = false
+style = 'fg:red'
+format = '[✘$status ]($style)'
