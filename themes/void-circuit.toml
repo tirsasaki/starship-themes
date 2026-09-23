@@ -2,7 +2,7 @@
 add_newline = false
 palette = 'void_circuit'
 
-format = "$directory$git_branch$git_status$character"
+format = "$os$directory$git_branch$git_status$character"
 right_format = "$status$cmd_duration"
 
 [palettes.void_circuit]
@@ -13,6 +13,57 @@ cyan = '#38E8DE'
 dim = '#52796F'
 red = '#FF5D73'
 yellow = '#E9FF70'
+
+[os]
+disabled = false
+style = 'fg:lime bold'
+format = '[$symbol ]($style)'
+
+[os.symbols]
+AIX = '󰣇'
+Alpaquita = ''
+AlmaLinux = ''
+Alpine = ''
+ALTLinux = ''
+Amazon = ''
+Android = ''
+AOSC = ''
+Arch = ''
+Artix = ''
+Bazzite = '󰊴'
+Bluefin = '󰈺'
+CachyOS = ''
+CentOS = ''
+Debian = ''
+DragonFly = ''
+Elementary = ''
+EndeavourOS = ''
+Fedora = ''
+FreeBSD = ''
+Garuda = ''
+Gentoo = ''
+Kali = ''
+KDENeon = ''
+Linux = ''
+Macos = ''
+Manjaro = ''
+Mint = ''
+NixOS = ''
+Nobara = ''
+OpenBSD = ''
+openSUSE = ''
+Pop = ''
+Raspbian = ''
+Redhat = ''
+RedHatEnterprise = ''
+RockyLinux = ''
+Solus = ''
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Void = ''
+Windows = '󰍲'
+Zorin = ''
 
 [directory]
 style = 'fg:white'

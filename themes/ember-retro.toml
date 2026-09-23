@@ -3,7 +3,7 @@ add_newline = true
 palette = 'ember_retro'
 
 format = """
-[┌─](fg:amber)[ $username@$hostname ](fg:cream bg:rust)[ $directory ](fg:dark bg:amber)$git_branch$git_status$cmd_duration
+[┌─](fg:amber)$os[ $username@$hostname ](fg:cream bg:rust)[ $directory ](fg:dark bg:amber)$git_branch$git_status$cmd_duration
 [└─](fg:amber)$character"""
 right_format = "$time"
 
@@ -15,6 +15,57 @@ cream = '#FFE0A3'
 green = '#A7C957'
 red = '#D1495B'
 brown = '#6F4E37'
+
+[os]
+disabled = false
+style = 'fg:cream bg:rust bold'
+format = '[ $symbol ]($style)'
+
+[os.symbols]
+AIX = '󰣇'
+Alpaquita = ''
+AlmaLinux = ''
+Alpine = ''
+ALTLinux = ''
+Amazon = ''
+Android = ''
+AOSC = ''
+Arch = ''
+Artix = ''
+Bazzite = '󰊴'
+Bluefin = '󰈺'
+CachyOS = ''
+CentOS = ''
+Debian = ''
+DragonFly = ''
+Elementary = ''
+EndeavourOS = ''
+Fedora = ''
+FreeBSD = ''
+Garuda = ''
+Gentoo = ''
+Kali = ''
+KDENeon = ''
+Linux = ''
+Macos = ''
+Manjaro = ''
+Mint = ''
+NixOS = ''
+Nobara = ''
+OpenBSD = ''
+openSUSE = ''
+Pop = ''
+Raspbian = ''
+Redhat = ''
+RedHatEnterprise = ''
+RockyLinux = ''
+Solus = ''
+SUSE = ''
+Ubuntu = ''
+Unknown = ''
+Void = ''
+Windows = '󰍲'
+Zorin = ''
 
 [username]
 show_always = true
