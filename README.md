@@ -10,7 +10,88 @@ The collection currently focuses on Zsh and Nerd Font icons. More themes, color 
 | --- | --- | --- | --- | --- |
 | [Amethyst Night](#amethyst-night) | Two-line Powerline | Purple, Dracula-inspired | [`themes/amethyst-night.toml`](themes/amethyst-night.toml) | Image coming soon |
 
-Preview images will be stored in [`assets/previews/`](assets/previews/). Until an image is available, each theme section includes a text representation of the prompt.
+Preview images will be stored in [`assets/previews/`](assets/previews/). Until an image is available, each completed theme section includes a text representation of the prompt.
+
+## Planned themes
+
+The roadmap below separates released themes from concepts that still need a TOML configuration and preview. Names, colors, and layouts can be adjusted during implementation.
+
+| Theme | Status | Prompt model | Main colors | Character |
+| --- | --- | --- | --- | --- |
+| **Amethyst Night** | Available | Two-line Powerline | Purple, pink, cyan | Dark Dracula-inspired developer prompt |
+| **Neon Shogun** | Planned | Two-line segmented | Magenta, electric blue, black | Bright cyberpunk prompt with strong Git indicators |
+| **Frostline** | Planned | Compact one-line | Ice blue, navy, white | Clean Nord-inspired prompt for daily use |
+| **Ember Retro** | Planned | Two-line block | Amber, rust, cream | Warm terminal look inspired by old monitors |
+| **Sakura Dawn** | Planned | Compact one-line | Soft pink, lavender, light gray | Light theme for bright terminal backgrounds |
+| **Void Circuit** | Planned | Minimal/transient | Lime, cyan, near-black | Fast, sparse prompt with only contextual modules |
+| **Oceanic Pulse** | Planned | Developer dashboard | Teal, blue, coral | Information-rich prompt for projects and containers |
+| **Monochrome Orbit** | Planned | Minimal two-line | White, gray, one accent color | Distraction-free prompt that also works without rich colors |
+
+### Prompt models
+
+#### Compact one-line
+
+Everything stays on one line. This model works well in small terminal windows and leaves more vertical space for command output.
+
+```text
+󰣇  ~/Projects/demo  󰘬 main +2 ❯
+```
+
+Planned themes: **Frostline** and **Sakura Dawn**.
+
+#### Two-line Powerline
+
+Context appears on the first line and the input character stays on a clean second line. It is readable in deep directories and Git repositories.
+
+```text
+╭─ 󰣇  user@host  󰉋 ~/Projects/demo  󰘬 main !
+╰─❯
+```
+
+Available theme: **Amethyst Night**. Planned theme: **Ember Retro**.
+
+#### Two-line segmented
+
+Modules use stronger visual separation and contrasting colors. This model favors style and immediate status recognition.
+
+```text
+╭─ OS  ~/project  󰘬 main 
+╰─❯
+```
+
+Planned theme: **Neon Shogun**.
+
+#### Developer dashboard
+
+The left side keeps location and Git information while the right side shows active runtimes, containers, cloud context, duration, and time.
+
+```text
+󰉋 ~/api  󰘬 feature/auth                 󰌠 3.14  󰡨 dev  14:32
+❯
+```
+
+Planned theme: **Oceanic Pulse**.
+
+#### Minimal/transient
+
+The normal prompt shows only essential context. Previous prompts can collapse after a command runs, keeping long sessions easy to scan. Transient behavior may require shell integration in addition to the Starship TOML file.
+
+```text
+~/project main ❯
+```
+
+Planned themes: **Void Circuit** and **Monochrome Orbit**.
+
+### Theme design rules
+
+Every completed theme should:
+
+- have a unique palette and a clearly defined prompt model
+- remain readable when a command fails or a Git repository is dirty
+- include a matching file in `themes/` and preview in `assets/previews/`
+- document any extra font or shell requirement
+- avoid showing expensive modules unless their context is detected
+- pass `starship print-config` and render successfully before being marked **Available**
 
 ## Amethyst Night
 
