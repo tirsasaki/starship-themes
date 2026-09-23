@@ -101,13 +101,22 @@ A restrained two-line prompt using grayscale and one lavender accent. It remains
 
 ## Requirements
 
-Install:
+The installer is intended for Linux, macOS, or another Unix-like environment with `/bin/sh`. Before installing a theme, make sure the following requirements are available:
 
-1. [Starship](https://starship.rs/guide/#step-1-install-starship)
-2. Zsh
-3. A [Nerd Font](https://www.nerdfonts.com/), such as JetBrainsMono Nerd Font or MesloLGS Nerd Font
+1. **[Starship](https://starship.rs/guide/#step-1-install-starship)** — required to render the prompt and validate the downloaded configuration. The installer can save a theme before Starship is installed, but the prompt will not appear until Starship is available.
+2. **A supported shell** — Zsh, Bash, and Fish are detected automatically, and the installer adds the appropriate Starship initialization line. Other shells require [manual Starship setup](https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship).
+3. **A download tool** — the commands in this README use `curl`. The installer itself can use either `curl` or `wget`.
+4. **A [Nerd Font](https://www.nerdfonts.com/)** — required for the icons used by the themes. JetBrainsMono Nerd Font and MesloLGS Nerd Font are known options.
 
-Select the Nerd Font in your terminal emulator. Installing it without selecting it will leave some icons as empty boxes. The dedicated CachyOS glyph requires Nerd Fonts 3.4.0 or newer; older fonts may show it as a box, so update the selected font if necessary.
+Check the command-line requirements with:
+
+```bash
+starship --version
+basename "$SHELL"
+command -v curl || command -v wget
+```
+
+After installing a Nerd Font, select it in your terminal emulator and restart the terminal. Installing the font without selecting it will leave some icons as empty boxes. Use Nerd Fonts 3.4.0 or newer for the dedicated CachyOS glyph; older versions may display it as a box.
 
 ## Installation
 
@@ -136,7 +145,7 @@ The installer:
 - enables Starship automatically for Zsh, Bash, or Fish
 - leaves existing shell integration unchanged when it is already configured
 
-Starship itself must already be installed. Open a new terminal after installation to load the prompt.
+Starship must be installed before the prompt can appear. If you install a theme first, install Starship afterward, then open a new terminal to load the prompt.
 
 List available theme names from the installer at any time:
 
