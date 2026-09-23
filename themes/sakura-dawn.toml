@@ -5,19 +5,22 @@ palette = 'sakura_dawn'
 format = "$os$username$directory$git_branch$git_status$cmd_duration$status$character"
 
 [palettes.sakura_dawn]
-ink = '#4A4158'
-soft_gray = '#81778C'
-light = '#FFF7FB'
-pink = '#E889B5'
-blossom = '#F4A7C5'
-lavender = '#A78BCA'
-green = '#6FAF8F'
-red = '#C85C70'
+ink = '#2F2436'
+plum = '#6D5576'
+petal = '#F8D9E7'
+rose = '#E88EB0'
+blossom = '#F6B9CE'
+lavender = '#C9B8F2'
+mist = '#F8F3F7'
+leaf = '#89B7A0'
+peach = '#F2C6A0'
+red = '#D8677A'
+soft_gray = '#8A7F91'
 
 [os]
 disabled = false
-style = 'fg:pink bold'
-format = '[$symbol ]($style)'
+style = 'bg:petal fg:ink bold'
+format = '[ $symbol ]($style)'
 
 [os.symbols]
 AIX = '󰣇'
@@ -67,24 +70,24 @@ Zorin = ''
 
 [username]
 show_always = false
-style_user = 'fg:soft_gray'
-style_root = 'fg:red bold'
-format = '[$user ]($style)'
+style_user = 'bg:lavender fg:ink bold'
+style_root = 'bg:red fg:mist bold'
+format = '[ $user ]($style)'
 
 [directory]
-style = 'fg:ink bold'
-format = '[󰉋 $path ]($style)'
+style = 'bg:rose fg:ink bold'
+format = '[ 󰉋 $path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
 read_only = ' 󰌾'
 
 [git_branch]
-symbol = ' '
-style = 'fg:lavender bold'
-format = '[$symbol$branch ]($style)'
+symbol = ' '
+style = 'bg:lavender fg:ink bold'
+format = '[ $symbol$branch ]($style)'
 
 [git_status]
-style = 'fg:pink'
+style = 'fg:rose bold'
 format = '[$all_status$ahead_behind ]($style)'
 untracked = '✿? '
 modified = '✿! '
@@ -95,8 +98,8 @@ deleted = '✘ '
 
 [cmd_duration]
 min_time = 2000
-style = 'fg:soft_gray'
-format = '[󰔟 $duration ]($style)'
+style = 'fg:soft_gray bold'
+format = '[ 󰔟 $duration ]($style)'
 
 [character]
 success_symbol = '[❯](bold fg:blossom)'
