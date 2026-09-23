@@ -3,19 +3,21 @@ add_newline = true
 palette = 'neon_shogun'
 
 format = """
-[╭─](fg:magenta)[](fg:magenta)$os$username[](fg:magenta bg:black)$directory[](fg:black bg:blue)$git_branch$git_status[](fg:blue)
-[╰─](fg:magenta)$character"""
-right_format = "$cmd_duration$time"
+[╭─](fg:dim)[](fg:magenta)$os$username[](fg:magenta bg:surface)$directory[](fg:surface bg:blue)$git_branch$git_status[](fg:blue)
+[╰─](fg:dim)$character"""
+right_format = "$status$cmd_duration$time"
 
 [palettes.neon_shogun]
-black = '#11111B'
-foreground = '#F5F5FA'
-magenta = '#FF2E97'
-blue = '#00D9FF'
-purple = '#9D4EDD'
-green = '#39FF88'
-yellow = '#FFE66D'
-red = '#FF3864'
+black = '#16161E'
+surface = '#24283B'
+foreground = '#C0CAF5'
+dim = '#565F89'
+magenta = '#BB9AF7'
+blue = '#7AA2F7'
+cyan = '#7DCFFF'
+green = '#9ECE6A'
+yellow = '#E0AF68'
+red = '#F7768E'
 
 [os]
 disabled = false
@@ -75,7 +77,7 @@ style_root = 'bg:red fg:black bold'
 format = '[$user ]($style)'
 
 [directory]
-style = 'bg:black fg:foreground bold'
+style = 'bg:surface fg:foreground bold'
 format = '[ 󰉋 $path ]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
@@ -93,29 +95,30 @@ conflicted = '󰞇 '
 ahead = '⇡${count} '
 behind = '⇣${count} '
 diverged = '⇕ '
-untracked = '? '
-modified = '! '
-staged = '+ '
-renamed = '» '
-deleted = '✘ '
+untracked = '•${count} '
+modified = '!${count} '
+staged = '+${count} '
+renamed = '»${count} '
+deleted = '×${count} '
+stashed = '󰏗${count} '
 
 [cmd_duration]
-min_time = 1000
-style = 'fg:yellow bold'
-format = '[ 󰔟 $duration ]($style)'
+min_time = 1500
+style = 'fg:yellow'
+format = '[ 󰔟 $duration]($style)'
 
 [time]
 disabled = false
 time_format = '%H:%M'
-style = 'fg:blue bold'
-format = '[ 󰥔 $time ]($style)'
+style = 'fg:dim'
+format = '[  󰥔 $time]($style)'
 
 [character]
-success_symbol = '[刀](bold fg:green)'
+success_symbol = '[刀](bold fg:magenta)'
 error_symbol = '[刀](bold fg:red)'
-vicmd_symbol = '[侍](bold fg:blue)'
+vicmd_symbol = '[侍](bold fg:cyan)'
 
 [status]
 disabled = false
 style = 'fg:red bold'
-format = '[ ✘ $status ]($style)'
+format = '[✘ $status]($style)'
