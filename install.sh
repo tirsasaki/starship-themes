@@ -8,24 +8,23 @@ BASE_URL="${STARSHIP_THEMES_BASE_URL:-https://raw.githubusercontent.com/${REPOSI
 CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 CONFIG_FILE="$CONFIG_DIR/starship.toml"
 
-THEMES="
-amethyst-night
+THEMES="amethyst-night
 ember-retro
 frostline
 monochrome-orbit
 neon-shogun
 oceanic-pulse
 sakura-dawn
-void-circuit
-"
+void-circuit"
 
 usage() {
     cat <<EOF
 Usage: install.sh [THEME]
        install.sh --list
 
-Installs a Starship theme and enables Starship for the current shell.
-When THEME is omitted, ${DEFAULT_THEME} is installed.
+Opens an interactive theme selector when THEME is omitted.
+Use Up/Down or j/k to move, Enter to install, and q to quit.
+In a non-interactive terminal, ${DEFAULT_THEME} is installed.
 EOF
 }
 
@@ -40,6 +39,93 @@ list_themes() {
 
 is_valid_theme() {
     printf '%s\n' "$THEMES" | grep -Fxq "$1"
+}
+
+theme_at() {
+    printf '%s\n' "$THEMES" | sed -n "${1}p"
+}
+
+select_theme() {
+    theme_count=$(printf '%s\n' "$THEMES" | wc -l | tr -d ' ')
+    selected=1
+    default_index=1
+    index=1
+
+    while IFS= read -r candidate; do
+        if [ "$candidate" = "$DEFAULT_THEME" ]; then
+            default_index=$index
+            break
+        fi
+        index=$((index + 1))
+    done <<EOF
+$THEMES
+EOF
+    selected=$default_index
+
+    old_stty=$(stty -g < /dev/tty)
+    trap 'stty "$old_stty" < /dev/tty; printf "\033[?25h" > /dev/tty' EXIT HUP INT TERM
+    stty -echo -icanon min 1 time 0 < /dev/tty
+    printf '\033[?25l' > /dev/tty
+
+    while :; do
+        printf '\033[2J\033[H' > /dev/tty
+        printf '\033[1;35mStarship Theme Installer\033[0m\n' > /dev/tty
+        printf 'Choose a theme to install\n\n' > /dev/tty
+
+        index=1
+        while IFS= read -r candidate; do
+            if [ "$index" -eq "$selected" ]; then
+                if [ "$candidate" = "$DEFAULT_THEME" ]; then
+                    printf '  \033[1;36m❯ %s\033[0m \033[2m(default)\033[0m\n' "$candidate" > /dev/tty
+                else
+                    printf '  \033[1;36m❯ %s\033[0m\n' "$candidate" > /dev/tty
+                fi
+            elif [ "$candidate" = "$DEFAULT_THEME" ]; then
+                printf '    %s \033[2m(default)\033[0m\n' "$candidate" > /dev/tty
+            else
+                printf '    %s\n' "$candidate" > /dev/tty
+            fi
+            index=$((index + 1))
+        done <<EOF
+$THEMES
+EOF
+
+        printf '\n\033[2m↑/↓ or j/k: move   Enter: install   q: quit\033[0m\n' > /dev/tty
+        key=$(dd bs=1 count=1 2>/dev/null < /dev/tty)
+
+        case "$key" in
+            '')
+                theme=$(theme_at "$selected")
+                break
+                ;;
+            j)
+                selected=$((selected % theme_count + 1))
+                ;;
+            k)
+                selected=$(((selected + theme_count - 2) % theme_count + 1))
+                ;;
+            q|Q)
+                stty "$old_stty" < /dev/tty
+                printf '\033[?25h\033[2J\033[HInstallation cancelled.\n' > /dev/tty
+                trap - EXIT HUP INT TERM
+                exit 0
+                ;;
+            "$(printf '\033')")
+                key2=$(dd bs=1 count=1 2>/dev/null < /dev/tty)
+                if [ "$key2" = "[" ]; then
+                    key3=$(dd bs=1 count=1 2>/dev/null < /dev/tty)
+                    case "$key3" in
+                        A) selected=$(((selected + theme_count - 2) % theme_count + 1)) ;;
+                        B) selected=$((selected % theme_count + 1)) ;;
+                    esac
+                fi
+                ;;
+        esac
+    done
+
+    stty "$old_stty" < /dev/tty
+    printf '\033[?25h\033[2J\033[H' > /dev/tty
+    trap - EXIT HUP INT TERM
 }
 
 download() {
@@ -103,7 +189,12 @@ case "${1:-}" in
         exit 0
         ;;
     '')
-        theme=$DEFAULT_THEME
+        if [ -t 1 ] && [ -r /dev/tty ] && [ -w /dev/tty ]; then
+            select_theme
+        else
+            theme=$DEFAULT_THEME
+            printf 'No interactive terminal detected; installing default theme %s.\n' "$theme"
+        fi
         ;;
     *)
         theme=$1
