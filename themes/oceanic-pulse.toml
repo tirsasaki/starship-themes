@@ -3,9 +3,9 @@ add_newline = true
 palette = 'oceanic_pulse'
 
 format = """
-$os$directory$git_branch$git_status
+[](fg:blue)$os$directory[](fg:deep bg:teal)$git_branch$git_status[](fg:teal)
 $character"""
-right_format = "$python$nodejs$rust$golang$docker_context$kubernetes$cmd_duration$time"
+right_format = "$python$nodejs$rust$golang$docker_context$kubernetes$cmd_duration$time$status"
 
 [palettes.oceanic_pulse]
 deep = '#102A43'
@@ -131,5 +131,5 @@ style = 'fg:foam'
 format = '[󰥔 $time]($style)'
 [status]
 disabled = false
-style = 'fg:coral'
+style = 'fg:coral bold'
 format = '[✘$status ]($style)'
