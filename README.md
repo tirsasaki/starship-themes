@@ -121,19 +121,6 @@ Install:
 
 Select the Nerd Font in your terminal emulator. Installing it without selecting it will leave some icons as empty boxes. The dedicated CachyOS glyph requires Nerd Fonts 3.4.0 or newer; older fonts may show it as a box, so update the selected font if necessary.
 
-## Automatic OS icons
-
-Every included theme enables Starship's `os` module. Starship detects the current operating system or Linux distribution and chooses its matching symbol automatically—no shell script or manual distro setting is required.
-
-The symbol map includes common distributions and platforms such as Arch, CachyOS, EndeavourOS, Debian, Fedora, Ubuntu, Linux Mint, Manjaro, NixOS, openSUSE, Pop!_OS, Rocky Linux, Void Linux, macOS, and Windows. Less common or unrecognized Linux systems fall back to the generic Linux symbol.
-
-To change a symbol locally, edit the corresponding entry under `[os.symbols]` in `~/.config/starship.toml`:
-
-```toml
-[os.symbols]
-CachyOS = ''
-```
-
 ## Installation
 
 Open the interactive theme selector with one command:
