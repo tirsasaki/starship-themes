@@ -2,17 +2,29 @@
 add_newline = false
 palette = 'void_circuit'
 
-format = "$os$directory$git_branch$git_status$character"
-right_format = "$status$cmd_duration"
+format = """
+$os\
+$directory\
+$git_branch\
+$git_state\
+$git_status\
+$nodejs\
+$python\
+$rust\
+$package\
+$character"""
+
+right_format = """$status$cmd_duration"""
 
 [palettes.void_circuit]
-void = '#0B0F10'
-white = '#D8F3DC'
-lime = '#7CFF6B'
-cyan = '#38E8DE'
-dim = '#52796F'
-red = '#FF5D73'
+void   = '#0B0F10'
+white  = '#D8F3DC'
+lime   = '#7CFF6B'
+cyan   = '#38E8DE'
+dim    = '#52796F'
+red    = '#FF5D73'
 yellow = '#E9FF70'
+purple = '#B18CFF'
 
 [os]
 disabled = false
@@ -66,42 +78,74 @@ Windows = '󰍲'
 Zorin = ''
 
 [directory]
-style = 'fg:white'
-format = '[$path ]($style)'
-truncation_length = 2
+style = 'fg:white bold'
+format = '[$path ]($style)[$read_only]($style)'
+truncation_length = 3
 truncation_symbol = '…/'
-read_only = ' lock'
+read_only = '󰌾 '
+home_symbol = '~'
 
 [git_branch]
-symbol = ''
-style = 'fg:cyan'
-format = '[$branch ]($style)'
+symbol = ' '
+style = 'fg:cyan bold'
+format = 'on [$symbol$branch ]($style)'
+
+[git_state]
+style = 'fg:purple bold'
+format = '[\($state( $progress_current/$progress_total)\) ]($style)'
+rebase = 'REBASE'
+merge = 'MERGE'
+cherry_pick = 'CHERRY-PICK'
 
 [git_status]
 style = 'fg:yellow'
 format = '[$all_status$ahead_behind]($style)'
-untracked = '? '
-modified = '~ '
-staged = '+ '
-ahead = '↑${count} '
-behind = '↓${count} '
-diverged = '↕ '
-deleted = '- '
+untracked = '?'
+modified = '~'
+staged = '+'
+renamed = '»'
+deleted = '✘'
+ahead = '↑${count}'
+behind = '↓${count}'
+diverged = '↕${ahead_count}${behind_count}'
+conflicted = '='
+stashed = '≡'
+
+[nodejs]
+symbol = ' '
+style = 'fg:lime'
+format = 'via [$symbol$version ]($style)'
+
+[python]
+symbol = ' '
+style = 'fg:cyan'
+format = 'via [$symbol$version ]($style)'
+
+[rust]
+symbol = ' '
+style = 'fg:red'
+format = 'via [$symbol$version ]($style)'
+
+[package]
+symbol = '󰏗 '
+style = 'fg:dim'
+format = '[$symbol$version ]($style)'
 
 [character]
-success_symbol = '[›](bold fg:lime)'
-error_symbol = '[›](bold fg:red)'
-vicmd_symbol = '[‹](bold fg:cyan)'
+success_symbol = '[❯](bold fg:lime)'
+error_symbol = '[❯](bold fg:red)'
+vicmd_symbol = '[❮](bold fg:cyan)'
 
 [status]
 disabled = false
-style = 'fg:red'
-format = '[$status ]($style)'
+style = 'fg:red bold'
+symbol = '✘ '
+format = '[$symbol$status ]($style)'
 
 [cmd_duration]
 min_time = 1000
-style = 'fg:dim'
-format = '[$duration]($style)'
+style = 'fg:dim italic'
+format = '[⏱ $duration]($style)'
 
 [line_break]
 disabled = true
