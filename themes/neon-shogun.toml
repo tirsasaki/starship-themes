@@ -3,28 +3,27 @@ add_newline = true
 palette = 'neon_shogun'
 
 format = """
-[╭─](fg:dim)[](fg:magenta)$os$username[](fg:magenta bg:surface)$directory[](bg:surface fg:blue)$git_branch$git_status[](fg:blue)
+[╭─](fg:dim)[](fg:crimson)$os$username[](fg:crimson bg:surface)$directory[](bg:surface fg:crimson)$git_branch$git_status[](fg:crimson)
 [╰─](fg:dim)$character"""
 right_format = "$status$cmd_duration$time"
 
 [palettes.neon_shogun]
-black = '#16161E'
-surface = '#24283B'
-overlay = '#2F3549'
-foreground = '#C0CAF5'
-dim = '#565F89'
-magenta = '#BB9AF7'
-blue = '#7AA2F7'
-cyan = '#7DCFFF'
-green = '#9ECE6A'
-yellow = '#E0AF68'
-orange = '#FF9E64'
-red = '#F7768E'
-pink = '#F7A8CC'
+black      = '#0A0509'
+surface    = '#1A0E14'
+overlay    = '#2B1620'
+foreground = '#F5E9DC'
+dim        = '#7A5A5F'
+crimson    = '#FF1F4C'
+blood      = '#B3082C'
+gold       = '#FFC94A'
+pink       = '#FF3DCE'
+cyan       = '#2EF6FF'
+green      = '#6CFFB0'
+red        = '#FF1F4C'
 
 [os]
 disabled = false
-style = 'bg:magenta fg:black bold'
+style = 'bg:crimson fg:black bold'
 format = '[ $symbol ]($style)'
 
 [os.symbols]
@@ -75,24 +74,24 @@ Zorin = ''
 
 [username]
 show_always = true
-style_user = 'bg:magenta fg:black bold'
-style_root = 'bg:red fg:black bold'
-format = '[$user ]($style)'
+style_user = 'bg:crimson fg:black bold'
+style_root = 'bg:gold fg:black bold'
+format = '[( $user )]($style)'
 
 [directory]
-style = 'bg:surface fg:foreground bold'
-format = '[ 󰉋 $path ]($style)'
+style = 'bg:surface fg:gold bold'
+format = '[( 󰉋 $path )]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
 read_only = ' 󰌾'
 
 [git_branch]
 symbol = '󰘬 '
-style = 'bg:blue fg:black bold'
-format = '[ $symbol$branch ]($style)'
+style = 'bg:crimson fg:black bold'
+format = '[( $symbol$branch )]($style)'
 
 [git_status]
-style = 'bg:blue fg:black bold'
+style = 'bg:surface fg:pink bold'
 format = '[$all_status$ahead_behind ]($style)'
 conflicted = '󰞇 '
 ahead = '⇡${count} '
@@ -107,21 +106,21 @@ stashed = '󰏗${count} '
 
 [cmd_duration]
 min_time = 1500
-style = 'fg:orange bold'
-format = '[ 󰔟 $duration]($style)'
+style = 'fg:cyan bold'
+format = '[ 󰔟 $duration ]($style)'
 
 [time]
 disabled = false
 time_format = '%H:%M'
 style = 'fg:dim'
-format = '[  󰥔 $time]($style)'
+format = '[  󰥔 $time ]($style)'
 
 [character]
-success_symbol = '[刀](bold fg:magenta)'
-error_symbol = '[刀](bold fg:red)'
+success_symbol = '[刀](bold fg:crimson)'
+error_symbol = '[刀](bold fg:blood)'
 vicmd_symbol = '[侍](bold fg:cyan)'
 
 [status]
 disabled = false
-style = 'fg:red bold'
-format = '[✘ $status]($style)'
+style = 'fg:blood bold'
+format = '[✘ $status ]($style)'
