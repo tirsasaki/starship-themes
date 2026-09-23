@@ -4,6 +4,34 @@ A collection of custom themes for [Starship](https://starship.rs). Each theme is
 
 The collection currently focuses on Zsh and Nerd Font icons. Every theme enables Starship's OS module and automatically displays a matching icon for the detected operating system or Linux distribution. More themes, color palettes, layouts, and shell styles can be added over time.
 
+## Table of contents
+
+- [Theme catalog](#theme-catalog)
+  - [Theme design rules](#theme-design-rules)
+  - [Amethyst Night](#amethyst-night)
+  - [Neon Shogun](#neon-shogun)
+  - [Frostline](#frostline)
+  - [Ember Retro](#ember-retro)
+  - [Sakura Dawn](#sakura-dawn)
+  - [Void Circuit](#void-circuit)
+  - [Oceanic Pulse](#oceanic-pulse)
+  - [Monochrome Orbit](#monochrome-orbit)
+- [Requirements](#requirements)
+- [Automatic OS icons](#automatic-os-icons)
+- [Installation](#installation)
+- [Switch or update a theme](#switch-or-update-a-theme)
+- [Verify a theme](#verify-a-theme)
+- [Customize a theme](#customize-a-theme)
+- [Restore the previous configuration](#restore-the-previous-configuration)
+- [Repository structure](#repository-structure)
+- [Adding a theme](#adding-a-theme)
+- [Preview image guidelines](#preview-image-guidelines)
+- [Troubleshooting](#troubleshooting)
+  - [Icons appear as boxes](#icons-appear-as-boxes)
+  - [Starship does not appear](#starship-does-not-appear)
+  - [A theme reports a configuration error](#a-theme-reports-a-configuration-error)
+- [License](#license)
+
 ## Theme catalog
 
 The **Style** column shows the prompt model used by each theme.
