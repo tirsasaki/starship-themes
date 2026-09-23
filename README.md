@@ -6,6 +6,8 @@ The collection currently focuses on Zsh and Nerd Font icons. Every theme enables
 
 ## Theme catalog
 
+The **Style** column shows the prompt model used by each theme.
+
 | Theme | Style | Colors | Configuration | Preview |
 | --- | --- | --- | --- | --- |
 | [Amethyst Night](#amethyst-night) | Two-line Powerline | Purple, pink, cyan | [`amethyst-night.toml`](themes/amethyst-night.toml) | Image coming soon |
@@ -18,61 +20,6 @@ The collection currently focuses on Zsh and Nerd Font icons. Every theme enables
 | [Monochrome Orbit](#monochrome-orbit) | Minimal two-line | White, gray, lavender | [`monochrome-orbit.toml`](themes/monochrome-orbit.toml) | Image coming soon |
 
 Preview images will be stored in [`assets/previews/`](assets/previews/). Until an image is available, each theme section includes a text representation of the prompt.
-
-### Prompt models
-
-#### Compact one-line
-
-Everything stays on one line. This model works well in small terminal windows and leaves more vertical space for command output.
-
-```text
-󰣇  ~/Projects/demo  󰘬 main +2 ❯
-```
-
-Themes using this model: **Frostline** and **Sakura Dawn**.
-
-#### Two-line Powerline
-
-Context appears on the first line and the input character stays on a clean second line. It is readable in deep directories and Git repositories.
-
-```text
-╭─ 󰣇  user@host  󰉋 ~/Projects/demo  󰘬 main !
-╰─❯
-```
-
-Themes using this model: **Amethyst Night** and **Ember Retro**.
-
-#### Two-line segmented
-
-Modules use stronger visual separation and contrasting colors. This model favors style and immediate status recognition.
-
-```text
-╭─ OS  ~/project  󰘬 main 
-╰─❯
-```
-
-Theme using this model: **Neon Shogun**.
-
-#### Developer dashboard
-
-The left side keeps location and Git information while the right side shows active runtimes, containers, cloud context, duration, and time.
-
-```text
-󰉋 ~/api  󰘬 feature/auth                 󰌠 3.14  󰡨 dev  14:32
-❯
-```
-
-Theme using this model: **Oceanic Pulse**.
-
-#### Minimal
-
-This model shows only essential context, keeping long sessions easy to scan. Void Circuit stays on one line, while Monochrome Orbit places the input character on a second line.
-
-```text
-~/project main ›
-```
-
-Themes using this model: **Void Circuit** and **Monochrome Orbit**.
 
 ### Theme design rules
 
@@ -104,8 +51,6 @@ Included modules:
 - Python, Node.js, Rust, Go, Docker, Kubernetes, Terraform, and AWS
 - success, error, and Vim-mode indicators
 
-Configuration: [`themes/amethyst-night.toml`](themes/amethyst-night.toml)
-
 ## Neon Shogun
 
 A polished cyberpunk prompt with a softer violet-and-blue palette, seamless Powerline transitions, and a quieter right-side status area. Git changes remain prominent without overpowering the directory, and the prompt character keeps its katana-inspired symbol.
@@ -115,8 +60,6 @@ A polished cyberpunk prompt with a softer violet-and-blue palette, seamless Powe
 ╰─刀
 ```
 
-Configuration: [`themes/neon-shogun.toml`](themes/neon-shogun.toml)
-
 ## Frostline
 
 A compact one-line prompt with an ice-blue palette. It keeps the directory, Git state, detected language runtime, and command duration visible without taking another terminal row.
@@ -124,8 +67,6 @@ A compact one-line prompt with an ice-blue palette. It keeps the directory, Git 
 ```text
 󰣇  󰉋 ~/project 󰘬 main 󰌠 3.14 ❯
 ```
-
-Configuration: [`themes/frostline.toml`](themes/frostline.toml)
 
 ## Ember Retro
 
@@ -136,8 +77,6 @@ A warm two-line prompt inspired by amber CRT terminals. User and host informatio
 └─>
 ```
 
-Configuration: [`themes/ember-retro.toml`](themes/ember-retro.toml)
-
 ## Sakura Dawn
 
 A soft pink and lavender one-line theme intended for bright or pastel terminal backgrounds. Git status uses small blossom markers to keep the layout light.
@@ -146,8 +85,6 @@ A soft pink and lavender one-line theme intended for bright or pastel terminal b
 󰣇  󰉋 ~/project  main ✿! ❯
 ```
 
-Configuration: [`themes/sakura-dawn.toml`](themes/sakura-dawn.toml)
-
 ## Void Circuit
 
 The smallest theme in the collection. It shows only the current directory, Git context, prompt character, and right-aligned failure or duration information.
@@ -155,8 +92,6 @@ The smallest theme in the collection. It shows only the current directory, Git c
 ```text
 ~/project main ~ ›
 ```
-
-Configuration: [`themes/void-circuit.toml`](themes/void-circuit.toml)
 
 ## Oceanic Pulse
 
@@ -167,8 +102,6 @@ A developer dashboard with project and Git context on the left, plus language ru
 ❯
 ```
 
-Configuration: [`themes/oceanic-pulse.toml`](themes/oceanic-pulse.toml)
-
 ## Monochrome Orbit
 
 A restrained two-line prompt using grayscale and one lavender accent. It remains readable in low-color setups while retaining clear success and error states.
@@ -177,8 +110,6 @@ A restrained two-line prompt using grayscale and one lavender accent. It remains
 ╭─󰣇 ~/project git:main !
 ╰─●
 ```
-
-Configuration: [`themes/monochrome-orbit.toml`](themes/monochrome-orbit.toml)
 
 ## Requirements
 
@@ -232,31 +163,24 @@ The installer:
 
 Starship itself must already be installed. Open a new terminal after installation to load the prompt.
 
-### Available theme names
-
-```text
-amethyst-night
-ember-retro
-frostline
-monochrome-orbit
-neon-shogun
-oceanic-pulse
-sakura-dawn
-void-circuit
-```
-
-List them from the installer at any time:
+List available theme names from the installer at any time:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- --list
 ```
 
-## Switch themes
+## Switch or update a theme
 
-Run the interactive installer again and select another theme. Your current configuration is backed up automatically:
+Run the installer again to select another theme or reinstall the same theme by name. The current configuration is backed up automatically before it is replaced:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh)"
+```
+
+To switch or update directly by theme name:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- neon-shogun
 ```
 
 ## Verify a theme
@@ -271,14 +195,6 @@ Test a repository theme before installing it:
 
 ```bash
 STARSHIP_CONFIG="$PWD/themes/amethyst-night.toml" starship prompt
-```
-
-## Update an installed theme
-
-Run the installer again with the same theme name. It downloads the current version and backs up your installed configuration before replacing it:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- neon-shogun
 ```
 
 ## Customize a theme
