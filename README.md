@@ -19,21 +19,6 @@ The collection currently focuses on Zsh and Nerd Font icons. More themes, color 
 
 Preview images will be stored in [`assets/previews/`](assets/previews/). Until an image is available, each theme section includes a text representation of the prompt.
 
-## Theme collection
-
-All eight themes are available as standalone TOML files. Their layouts cover compact prompts, decorative Powerline segments, dashboard-style runtime information, dark palettes, and a light-terminal option.
-
-| Theme | Status | Prompt model | Best suited for |
-| --- | --- | --- | --- |
-| **Amethyst Night** | Available | Two-line Powerline | A balanced, information-rich daily prompt |
-| **Neon Shogun** | Available | Two-line segmented | A bold cyberpunk terminal setup |
-| **Frostline** | Available | Compact one-line | Small terminals and maximum output space |
-| **Ember Retro** | Available | Two-line block | Warm retro terminal palettes |
-| **Sakura Dawn** | Available | Compact one-line | Light or pastel terminal backgrounds |
-| **Void Circuit** | Available | Minimal one-line | Fast, low-noise command sessions |
-| **Oceanic Pulse** | Available | Developer dashboard | Runtimes, containers, and cloud workflows |
-| **Monochrome Orbit** | Available | Minimal two-line | A restrained prompt with one accent color |
-
 ### Prompt models
 
 #### Compact one-line
