@@ -12,7 +12,7 @@ THEMES="amethyst-night
 ember-retro
 frostline
 monochrome-orbit
-neon-shogun
+wabi-sabi
 oceanic-pulse
 sakura-dawn
 void-circuit"
