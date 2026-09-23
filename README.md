@@ -205,20 +205,25 @@ CachyOS = ''
 
 ## Installation
 
-Install the default **Amethyst Night** theme with one command:
+Open the interactive theme selector with one command:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh)"
 ```
 
-Install a specific theme by adding its name:
+Use `↑`/`↓` or `j`/`k` to move, press `Enter` to install the highlighted theme, or press `q` to quit. **Amethyst Night** is highlighted by default.
+
+The interactive selector reads directly from the terminal, so it still works when the installer is downloaded through command substitution. If no interactive terminal is available, it safely installs Amethyst Night.
+
+To skip the menu and install a specific theme directly:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- amethyst-night
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- frostline
 ```
 
 The installer:
 
+- shows a dependency-free terminal selector
 - downloads and validates the selected theme
 - backs up an existing `starship.toml` with a timestamp
 - installs it to `${XDG_CONFIG_HOME:-~/.config}/starship.toml`
@@ -248,10 +253,10 @@ curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/inst
 
 ## Switch themes
 
-Run the installer again with a different theme name. Your current configuration is backed up automatically:
+Run the interactive installer again and select another theme. Your current configuration is backed up automatically:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- frostline
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh)"
 ```
 
 ## Verify a theme
