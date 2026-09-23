@@ -1,13 +1,26 @@
 # Starship Themes
 
+![Amethyst Night theme preview](assets/previews/amethyst-night.png)
+
 A collection of custom themes for [Starship](https://starship.rs). Each theme is distributed as a standalone TOML file, so you can install one without copying the rest of the repository.
 
-The collection currently focuses on Zsh and Nerd Font icons. Every theme enables Starship's OS module and automatically displays a matching icon for the detected operating system or Linux distribution. More themes, color palettes, layouts, and shell styles can be added over time.
+The installer supports Zsh, Bash, and Fish; examples and troubleshooting use Zsh unless noted otherwise. Every theme uses Nerd Font icons, enables Starship's OS module, and automatically displays a matching icon for the detected operating system or Linux distribution. More themes, color palettes, layouts, and shell styles can be added over time.
+
+## Quick start
+
+Open the interactive theme selector:
+
+```bash
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh)"
+```
+
+Starship and a Nerd Font must be installed before using a theme; select the Nerd Font in your terminal emulator. See [Requirements](#requirements).
 
 ## Table of contents
 
+- [Quick start](#quick-start)
 - [Theme catalog](#theme-catalog)
-  - [Theme design rules](#theme-design-rules)
+- [Themes](#themes)
   - [Amethyst Night](#amethyst-night)
   - [Wabi Sabi](#wabi-sabi)
   - [Frostline](#frostline)
@@ -24,6 +37,7 @@ The collection currently focuses on Zsh and Nerd Font icons. Every theme enables
 - [Restore the previous configuration](#restore-the-previous-configuration)
 - [Repository structure](#repository-structure)
 - [Adding a theme](#adding-a-theme)
+  - [Theme design rules](#theme-design-rules)
 - [Preview image guidelines](#preview-image-guidelines)
 - [Troubleshooting](#troubleshooting)
   - [Icons appear as boxes](#icons-appear-as-boxes)
@@ -48,62 +62,139 @@ The **Style** column shows the prompt model used by each theme.
 
 Preview images are stored in [`assets/previews/`](assets/previews/).
 
-### Theme design rules
+## Themes
 
-Every completed theme should:
+### Amethyst Night
 
-- have a unique palette and a clearly defined prompt model
-- remain readable when a command fails or a Git repository is dirty
-- include a matching file in `themes/` and preview in `assets/previews/`
-- document any extra font or shell requirement
-- avoid showing expensive modules unless their context is detected
-- pass `starship print-config` and render successfully before being marked **Available**
-
-## Amethyst Night
-
-Amethyst Night is a two-line Powerline-style prompt with a purple palette inspired by Dracula. It displays the operating system, user, hostname, directory, Git status, command duration, exit status, time, shell, and detected development tools.
+Amethyst Night is a two-line Powerline-style prompt with a purple palette inspired by Dracula and contextual development information on the right.
 
 Included modules:
 
-- automatically detected OS and Linux distribution icons
+- OS, username, hostname, and directory
 - Git branch and working-tree status
-- command duration and exit status
-- Python, Node.js, Rust, Go, Docker, Kubernetes, Terraform, and AWS
-- success, error, and Vim-mode indicators
+- command duration, exit status, time, and shell indicator
+- Python, Node.js, Rust, Go, Docker, Terraform, and AWS when detected
+- success, error, and Vim-mode prompt indicators
 
-## Wabi Sabi
+**Prompt model:** Two-line Powerline
+
+**Palette:** Purple, pink, cyan
+
+### Wabi Sabi
 
 A restrained two-line prompt inspired by Japanese wabi-sabi aesthetics. Its indigo, bamboo, matcha, and terracotta palette keeps the directory and Git context distinct, while status, command duration, and time remain quietly aligned on the right.
 
-## Frostline
+Included modules:
+
+- OS, username, and directory
+- Git branch and working-tree status
+- exit status, command duration, and time
+- success, error, and Vim-mode prompt indicators
+
+**Prompt model:** Two-line segmented
+
+**Palette:** Indigo, matcha, terracotta
+
+### Frostline
 
 A compact one-line prompt with an ice-blue palette. It keeps the directory, Git state, detected language runtime, and command duration visible without taking another terminal row.
 
-## Ember Retro
+Included modules:
+
+- OS and directory
+- Git branch, operation state, and working-tree status
+- Python, Node.js, Rust, Go, and package versions when detected
+- command duration and exit status
+- success, error, and Vim-mode prompt indicators
+
+**Prompt model:** Compact one-line
+
+**Palette:** Ice blue, navy, white
+
+### Ember Retro
 
 A warm two-line prompt inspired by amber CRT terminals. User and host information sit in a rust-colored block, while the working directory uses a brighter amber segment.
 
-## Sakura Dawn
+Included modules:
+
+- OS, username, hostname, and directory
+- Git branch and working-tree status
+- command duration and time
+- success, error, and Vim-mode prompt indicators
+
+**Prompt model:** Two-line block
+
+**Palette:** Amber, rust, cream
+
+### Sakura Dawn
 
 A soft pink and lavender one-line theme intended for bright or pastel terminal backgrounds. Git status uses small blossom markers to keep the layout light.
 
-## Void Circuit
+Included modules:
 
-The smallest theme in the collection. It shows only the current directory, Git context, prompt character, and right-aligned failure or duration information.
+- OS, contextual username, and directory
+- Git branch and working-tree status
+- command duration and exit status
+- success, error, and Vim-mode prompt indicators
 
-## Oceanic Pulse
+**Prompt model:** Compact one-line
+
+**Palette:** Soft pink, lavender, gray
+
+### Void Circuit
+
+A minimal one-line theme with a near-black palette that retains contextual development and Git information.
+
+Included modules:
+
+- OS and directory
+- Git branch, operation state, and working-tree status
+- Node.js, Python, Rust, and package versions when detected
+- right-aligned exit status and command duration
+- success, error, and Vim-mode prompt indicators
+
+**Prompt model:** Minimal one-line
+
+**Palette:** Lime, cyan, near-black
+
+### Oceanic Pulse
 
 A developer dashboard with project and Git context on the left, plus language runtimes, Docker, Kubernetes, command duration, and time on the right when detected.
 
-## Monochrome Orbit
+Included modules:
+
+- OS, directory, and Git branch/status
+- Python, Node.js, Rust, and Go when detected
+- Docker and Kubernetes context
+- command duration, time, and exit status
+- success, error, and Vim-mode prompt indicators
+
+**Prompt model:** Developer dashboard
+
+**Palette:** Teal, blue, coral
+
+### Monochrome Orbit
 
 A restrained two-line prompt using grayscale and one lavender accent. It remains readable in low-color setups while retaining clear success and error states.
+
+Included modules:
+
+- OS and directory
+- Git branch and working-tree status
+- command duration
+- success, error, and Vim-mode prompt indicators
+
+**Prompt model:** Minimal two-line
+
+**Palette:** White, gray, lavender
 
 ## Requirements
 
 The installer is intended for Linux, macOS, or another Unix-like environment with `/bin/sh`. Before installing a theme, make sure the following requirements are available:
 
-1. **[Starship](https://starship.rs/guide/#step-1-install-starship)** — required to render the prompt and validate the downloaded configuration. The installer can save a theme before Starship is installed, but the prompt will not appear until Starship is available.
+Native Windows and PowerShell are not currently supported by the installer.
+
+1. **[Starship](https://starship.rs/guide/#step-1-install-starship)** — required to render the prompt. When available, Starship is also used to validate the downloaded configuration. The installer can save a theme before Starship is installed, but the prompt will not appear until Starship is available.
 2. **A supported shell** — Zsh, Bash, and Fish are detected automatically, and the installer adds the appropriate Starship initialization line. Other shells require [manual Starship setup](https://starship.rs/guide/#step-2-set-up-your-shell-to-use-starship).
 3. **A download tool** — the commands in this README use `curl`. The installer itself can use either `curl` or `wget`.
 4. **A [Nerd Font](https://www.nerdfonts.com/)** — required for the icons used by the themes. JetBrainsMono Nerd Font and MesloLGS Nerd Font are known options.
@@ -120,7 +211,13 @@ After installing a Nerd Font, select it in your terminal emulator and restart th
 
 ## Installation
 
-Open the interactive theme selector with one command:
+Review the installer before running it through a remote shell:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | less
+```
+
+Then open the interactive theme selector:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh)"
@@ -138,12 +235,12 @@ curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/inst
 
 The installer:
 
-- shows a dependency-free terminal selector
-- downloads and validates the selected theme
+- shows a built-in terminal selector
+- downloads the selected theme and validates it when Starship is installed
 - backs up an existing `starship.toml` with a timestamp
-- installs it to `${XDG_CONFIG_HOME:-~/.config}/starship.toml`
+- installs it to `${XDG_CONFIG_HOME:-$HOME/.config}/starship.toml`
 - enables Starship automatically for Zsh, Bash, or Fish
-- leaves existing shell integration unchanged when it is already configured
+- does not append another initialization line when the shell configuration already contains `starship init`
 
 Starship must be installed before the prompt can appear. If you install a theme first, install Starship afterward, then open a new terminal to load the prompt.
 
@@ -178,23 +275,29 @@ starship print-config >/dev/null && echo "Starship theme loaded"
 Test a repository theme before installing it:
 
 ```bash
+git clone https://github.com/tirsasaki/starship-themes.git && cd starship-themes
+```
+
+From the repository root, run:
+
+```bash
 STARSHIP_CONFIG="$PWD/themes/amethyst-night.toml" starship prompt
 ```
 
 ## Customize a theme
 
-Edit the installed configuration:
+The installed configuration is stored at:
 
 ```text
-~/.config/starship.toml
+${XDG_CONFIG_HOME:-$HOME/.config}/starship.toml
 ```
 
-For Amethyst Night, the colors are defined under `[palettes.amethyst_night]`. Changing this local file does not modify the repository copy.
+Each theme selects a palette with `palette = '<theme_name>'` and defines its colors under `[palettes.<theme_name>]`. The current palette names are `amethyst_night`, `wabi_sabi`, `frostline`, `ember_retro`, `sakura_dawn`, `void_circuit`, `oceanic_pulse`, and `monochrome_orbit`.
 
-To keep a customized version, give it a separate filename before pulling repository updates:
+Changing the installed file does not modify the repository copy. Running the installer again replaces `starship.toml` after creating a timestamped backup, so save a customized version under a separate filename:
 
 ```bash
-cp ~/.config/starship.toml ~/my-starship-theme.toml
+cp "${XDG_CONFIG_HOME:-$HOME/.config}/starship.toml" ~/my-starship-theme.toml
 ```
 
 ## Restore the previous configuration
@@ -202,8 +305,9 @@ cp ~/.config/starship.toml ~/my-starship-theme.toml
 The installer creates timestamped backups next to `starship.toml`. List them, then restore the one you want:
 
 ```bash
-ls -1 ~/.config/starship.toml.backup-*
-cp ~/.config/starship.toml.backup-YYYYMMDD-HHMMSS ~/.config/starship.toml
+config_dir="${XDG_CONFIG_HOME:-$HOME/.config}"
+ls -1 "$config_dir"/starship.toml.backup-*
+cp "$config_dir"/starship.toml.backup-YYYYMMDD-HHMMSS "$config_dir"/starship.toml
 ```
 
 Open a new terminal after restoring it.
@@ -211,9 +315,10 @@ Open a new terminal after restoring it.
 To remove the active theme without restoring another configuration:
 
 ```bash
-rm ~/.config/starship.toml
-exec zsh
+rm "${XDG_CONFIG_HOME:-$HOME/.config}/starship.toml"
 ```
+
+Open a new terminal afterward, or restart the current shell with `exec "$SHELL"`.
 
 ## Repository structure
 
@@ -244,7 +349,7 @@ To add another theme:
 1. Place the tested Starship configuration in `themes/<theme-name>.toml`.
 2. Place its screenshot in `assets/previews/<theme-name>.png`.
 3. Add it to the theme catalog.
-4. Add a short section describing its layout, palette, and notable modules.
+4. Add a `###` theme section with a short description, an Included modules list, a Prompt model line, and a Palette line.
 5. Test it with:
 
 ```bash
@@ -254,20 +359,28 @@ STARSHIP_CONFIG="$PWD/themes/<theme-name>.toml" starship prompt
 
 Submit additions through a pull request so the configuration and preview can be reviewed together.
 
+### Theme design rules
+
+Every completed theme should:
+
+- have a unique palette and a clearly defined prompt model
+- remain readable when a command fails or a Git repository is dirty
+- include a matching file in `themes/` and preview in `assets/previews/`
+- document any extra font or shell requirement
+- avoid showing expensive modules unless their context is detected
+- pass `starship print-config` and render successfully before being added to the catalog
+
 ## Preview image guidelines
 
 Use PNG or WebP. Crop the image to the terminal area, keep text readable, and avoid including private paths, usernames, hostnames, tokens, or command history.
 
-Recommended naming:
+For a new theme:
 
-```text
-assets/previews/<theme-name>.png
-```
-
-After uploading an image, replace `Image coming soon` in the catalog with:
+1. Save the image as `assets/previews/<theme-name>.png`, or use `.webp` and keep the same extension in the catalog.
+2. Add the theme to the catalog with its configuration and preview paths:
 
 ```markdown
-![Theme Name](assets/previews/theme-name.png)
+| [Theme Name](#theme-name) | Prompt model | Colors | [`theme-name.toml`](themes/theme-name.toml) | ![Theme Name](assets/previews/theme-name.png) |
 ```
 
 ## Troubleshooting
@@ -278,17 +391,39 @@ Select a Nerd Font in the terminal settings, then restart the terminal. JetBrain
 
 ### Starship does not appear
 
-Confirm that Zsh loads Starship:
+Check the configuration files for all three shells supported by the installer:
 
 ```bash
-grep -n "starship init zsh" ~/.zshrc
+grep -nF "starship init" ~/.zshrc ~/.bashrc ~/.config/fish/config.fish 2>/dev/null
 ```
 
-If the command returns nothing, add the initialization line from the Zsh section above.
+If the current shell has no initialization line, add the matching command to its configuration file:
+
+Zsh — `~/.zshrc`:
+
+```bash
+eval "$(starship init zsh)"
+```
+
+Bash — `~/.bashrc`:
+
+```bash
+eval "$(starship init bash)"
+```
+
+Fish — `~/.config/fish/config.fish`:
+
+```fish
+starship init fish | source
+```
+
+If `XDG_CONFIG_HOME` is set, use `$XDG_CONFIG_HOME/fish/config.fish` instead of the default Fish path.
+
+Open a new terminal after updating the file.
 
 ### A theme reports a configuration error
 
-Run Starship with the affected file:
+From the repository root, run Starship with the affected file:
 
 ```bash
 STARSHIP_CONFIG="$PWD/themes/amethyst-night.toml" starship print-config
