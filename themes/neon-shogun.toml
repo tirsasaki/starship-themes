@@ -8,19 +8,19 @@ format = """
 right_format = "$status$cmd_duration$time"
 
 [palettes.neon_shogun]
-black = '#0F111A'
-surface = '#1D2333'
-overlay = '#2B3248'
-foreground = '#EAF2FF'
-dim = '#69779A'
-magenta = '#D9A7FF'
-blue = '#89B4FF'
-cyan = '#76D9FF'
-green = '#9AE6A8'
-yellow = '#F5D88C'
-orange = '#FFB38A'
-red = '#FF7F9F'
-pink = '#F7C6E5'
+black = '#0B0D14'
+surface = '#151828'
+overlay = '#221B35'
+foreground = '#F6EEFF'
+dim = '#7A7295'
+magenta = '#D88BFF'
+blue = '#9D7BFF'
+cyan = '#7EE7FF'
+green = '#9CF4CC'
+yellow = '#F9D98C'
+orange = '#FFB88C'
+red = '#FF6F9F'
+pink = '#F7C8FF'
 
 [os]
 disabled = false
@@ -88,11 +88,11 @@ read_only = ' 󰌾'
 
 [git_branch]
 symbol = '󰘬 '
-style = 'bg:blue fg:black bold'
+style = 'bg:magenta fg:black bold'
 format = '[ $symbol$branch ]($style)'
 
 [git_status]
-style = 'bg:surface fg:foreground bold'
+style = 'bg:surface fg:magenta bold'
 format = '[$all_status$ahead_behind ]($style)'
 conflicted = '󰞇 '
 ahead = '⇡${count} '
@@ -107,7 +107,7 @@ stashed = '󰏗${count} '
 
 [cmd_duration]
 min_time = 1500
-style = 'fg:orange bold'
+style = 'fg:cyan bold'
 format = '[ 󰔟 $duration ]($style)'
 
 [time]
