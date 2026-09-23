@@ -205,7 +205,7 @@ CachyOS = ''
 
 ## Installation
 
-Install the default **Neon Shogun** theme with one command:
+Install the default **Amethyst Night** theme with one command:
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh
