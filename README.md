@@ -9,7 +9,7 @@ The collection currently focuses on Zsh and Nerd Font icons. Every theme enables
 - [Theme catalog](#theme-catalog)
   - [Theme design rules](#theme-design-rules)
   - [Amethyst Night](#amethyst-night)
-  - [Neon Shogun](#neon-shogun)
+  - [Wabi Sabi](#wabi-sabi)
   - [Frostline](#frostline)
   - [Ember Retro](#ember-retro)
   - [Sakura Dawn](#sakura-dawn)
@@ -37,16 +37,16 @@ The **Style** column shows the prompt model used by each theme.
 
 | Theme | Style | Colors | Configuration | Preview |
 | --- | --- | --- | --- | --- |
-| [Amethyst Night](#amethyst-night) | Two-line Powerline | Purple, pink, cyan | [`amethyst-night.toml`](themes/amethyst-night.toml) | Image coming soon |
-| [Neon Shogun](#neon-shogun) | Two-line segmented | Magenta, electric blue, black | [`neon-shogun.toml`](themes/neon-shogun.toml) | Image coming soon |
-| [Frostline](#frostline) | Compact one-line | Ice blue, navy, white | [`frostline.toml`](themes/frostline.toml) | Image coming soon |
-| [Ember Retro](#ember-retro) | Two-line block | Amber, rust, cream | [`ember-retro.toml`](themes/ember-retro.toml) | Image coming soon |
-| [Sakura Dawn](#sakura-dawn) | Compact one-line | Soft pink, lavender, gray | [`sakura-dawn.toml`](themes/sakura-dawn.toml) | Image coming soon |
-| [Void Circuit](#void-circuit) | Minimal one-line | Lime, cyan, near-black | [`void-circuit.toml`](themes/void-circuit.toml) | Image coming soon |
-| [Oceanic Pulse](#oceanic-pulse) | Developer dashboard | Teal, blue, coral | [`oceanic-pulse.toml`](themes/oceanic-pulse.toml) | Image coming soon |
-| [Monochrome Orbit](#monochrome-orbit) | Minimal two-line | White, gray, lavender | [`monochrome-orbit.toml`](themes/monochrome-orbit.toml) | Image coming soon |
+| [Amethyst Night](#amethyst-night) | Two-line Powerline | Purple, pink, cyan | [`amethyst-night.toml`](themes/amethyst-night.toml) | ![Amethyst Night](assets/previews/amethyst-night.png) |
+| [Wabi Sabi](#wabi-sabi) | Two-line segmented | Indigo, matcha, terracotta | [`wabi-sabi.toml`](themes/wabi-sabi.toml) | ![Wabi Sabi](assets/previews/wabi-sabi.png) |
+| [Frostline](#frostline) | Compact one-line | Ice blue, navy, white | [`frostline.toml`](themes/frostline.toml) | ![Frostline](assets/previews/frostline.png) |
+| [Ember Retro](#ember-retro) | Two-line block | Amber, rust, cream | [`ember-retro.toml`](themes/ember-retro.toml) | ![Ember Retro](assets/previews/ember-retro.png) |
+| [Sakura Dawn](#sakura-dawn) | Compact one-line | Soft pink, lavender, gray | [`sakura-dawn.toml`](themes/sakura-dawn.toml) | ![Sakura Dawn](assets/previews/sakura-dawn.png) |
+| [Void Circuit](#void-circuit) | Minimal one-line | Lime, cyan, near-black | [`void-circuit.toml`](themes/void-circuit.toml) | ![Void Circuit](assets/previews/void-circuit.png) |
+| [Oceanic Pulse](#oceanic-pulse) | Developer dashboard | Teal, blue, coral | [`oceanic-pulse.toml`](themes/oceanic-pulse.toml) | ![Oceanic Pulse](assets/previews/oceanic-pulse.png) |
+| [Monochrome Orbit](#monochrome-orbit) | Minimal two-line | White, gray, lavender | [`monochrome-orbit.toml`](themes/monochrome-orbit.toml) | ![Monochrome Orbit](assets/previews/monochrome-orbit.png) |
 
-Preview images will be stored in [`assets/previews/`](assets/previews/). Until an image is available, each theme section includes a text representation of the prompt.
+Preview images are stored in [`assets/previews/`](assets/previews/). Each theme section also includes a text representation of the prompt.
 
 ### Theme design rules
 
@@ -78,12 +78,12 @@ Included modules:
 - Python, Node.js, Rust, Go, Docker, Kubernetes, Terraform, and AWS
 - success, error, and Vim-mode indicators
 
-## Neon Shogun
+## Wabi Sabi
 
-A polished cyberpunk prompt with a softer violet-and-blue palette, seamless Powerline transitions, and a quieter right-side status area. Git changes remain prominent without overpowering the directory, and the prompt character keeps its katana-inspired symbol.
+A restrained two-line prompt inspired by Japanese wabi-sabi aesthetics. Its indigo, bamboo, matcha, and terracotta palette keeps the directory and Git context distinct, while status, command duration, and time remain quietly aligned on the right.
 
 ```text
-╭─  user  󰉋 ~/project  󰘬 main !2           󰥔 14:32
+╭─  user  󰉋 ~/project  󰘬 main          󰥔 14:32
 ╰─刀
 ```
 
@@ -194,7 +194,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/
 To switch or update directly by theme name:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- neon-shogun
+curl -fsSL https://raw.githubusercontent.com/tirsasaki/starship-themes/main/install.sh | sh -s -- wabi-sabi
 ```
 
 ## Verify a theme
@@ -256,10 +256,10 @@ starship-themes/
 │   ├── ember-retro.toml
 │   ├── frostline.toml
 │   ├── monochrome-orbit.toml
-│   ├── neon-shogun.toml
 │   ├── oceanic-pulse.toml
 │   ├── sakura-dawn.toml
-│   └── void-circuit.toml
+│   ├── void-circuit.toml
+│   └── wabi-sabi.toml
 ├── install.sh             # One-command installer
 ├── LICENSE
 └── README.md
