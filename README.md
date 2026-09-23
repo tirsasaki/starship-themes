@@ -108,10 +108,10 @@ Configuration: [`themes/amethyst-night.toml`](themes/amethyst-night.toml)
 
 ## Neon Shogun
 
-A high-contrast cyberpunk prompt built from magenta and electric-blue Powerline segments. Git changes are deliberately prominent, and the prompt character uses a katana-inspired symbol.
+A polished cyberpunk prompt with a softer violet-and-blue palette, seamless Powerline transitions, and a quieter right-side status area. Git changes remain prominent without overpowering the directory, and the prompt character keeps its katana-inspired symbol.
 
 ```text
-╭─ 󰣇 user  󰉋 ~/project  󰘬 main ! 
+╭─  user  󰉋 ~/project  󰘬 main !2           󰥔 14:32
 ╰─刀
 ```
 
