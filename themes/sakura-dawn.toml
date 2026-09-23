@@ -1,0 +1,69 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = false
+palette = 'sakura_dawn'
+
+format = "$os$username$directory$git_branch$git_status$cmd_duration$character"
+
+[palettes.sakura_dawn]
+ink = '#4A4158'
+soft_gray = '#81778C'
+light = '#FFF7FB'
+pink = '#E889B5'
+blossom = '#F4A7C5'
+lavender = '#A78BCA'
+green = '#6FAF8F'
+red = '#C85C70'
+
+[os]
+disabled = false
+style = 'fg:pink bold'
+format = '[$symbol ]($style)'
+
+[os.symbols]
+Arch = '󰣇'
+CachyOS = '󰣇'
+EndeavourOS = '󰣇'
+Linux = '󰌽'
+
+[username]
+show_always = false
+style_user = 'fg:soft_gray'
+style_root = 'fg:red bold'
+format = '[$user ]($style)'
+
+[directory]
+style = 'fg:ink bold'
+format = '[󰉋 $path ]($style)'
+truncation_length = 3
+truncation_symbol = '…/'
+read_only = ' 󰌾'
+
+[git_branch]
+symbol = ' '
+style = 'fg:lavender bold'
+format = '[$symbol$branch ]($style)'
+
+[git_status]
+style = 'fg:pink'
+format = '[$all_status$ahead_behind]($style)'
+untracked = '✿? '
+modified = '✿! '
+staged = '✿+ '
+ahead = '⇡${count} '
+behind = '⇣${count} '
+deleted = '✘ '
+
+[cmd_duration]
+min_time = 2000
+style = 'fg:soft_gray'
+format = '[󰔟 $duration ]($style)'
+
+[character]
+success_symbol = '[❯](bold fg:blossom)'
+error_symbol = '[❯](bold fg:red)'
+vicmd_symbol = '[❮](bold fg:lavender)'
+
+[status]
+disabled = false
+style = 'fg:red'
+format = '[✘$status ]($style)'

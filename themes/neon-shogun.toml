@@ -1,0 +1,81 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+add_newline = true
+palette = 'neon_shogun'
+
+format = """
+[╭─](fg:magenta)[](fg:magenta)$os$username[](fg:magenta bg:black)$directory[](fg:black bg:blue)$git_branch$git_status[](fg:blue)
+[╰─](fg:magenta)$character"""
+right_format = "$cmd_duration$time"
+
+[palettes.neon_shogun]
+black = '#11111B'
+foreground = '#F5F5FA'
+magenta = '#FF2E97'
+blue = '#00D9FF'
+purple = '#9D4EDD'
+green = '#39FF88'
+yellow = '#FFE66D'
+red = '#FF3864'
+
+[os]
+disabled = false
+style = 'bg:magenta fg:black bold'
+format = '[ $symbol ]($style)'
+
+[os.symbols]
+Arch = '󰣇'
+CachyOS = '󰣇'
+EndeavourOS = '󰣇'
+Linux = '󰌽'
+
+[username]
+show_always = true
+style_user = 'bg:magenta fg:black bold'
+style_root = 'bg:red fg:black bold'
+format = '[$user ]($style)'
+
+[directory]
+style = 'bg:black fg:foreground bold'
+format = '[ 󰉋 $path ]($style)'
+truncation_length = 3
+truncation_symbol = '…/'
+read_only = ' 󰌾'
+
+[git_branch]
+symbol = '󰘬 '
+style = 'bg:blue fg:black bold'
+format = '[ $symbol$branch ]($style)'
+
+[git_status]
+style = 'bg:blue fg:black bold'
+format = '[$all_status$ahead_behind ]($style)'
+conflicted = '󰞇 '
+ahead = '⇡${count} '
+behind = '⇣${count} '
+diverged = '⇕ '
+untracked = '? '
+modified = '! '
+staged = '+ '
+renamed = '» '
+deleted = '✘ '
+
+[cmd_duration]
+min_time = 1000
+style = 'fg:yellow bold'
+format = '[ 󰔟 $duration ]($style)'
+
+[time]
+disabled = false
+time_format = '%H:%M'
+style = 'fg:blue bold'
+format = '[ 󰥔 $time ]($style)'
+
+[character]
+success_symbol = '[刀](bold fg:green)'
+error_symbol = '[刀](bold fg:red)'
+vicmd_symbol = '[侍](bold fg:blue)'
+
+[status]
+disabled = false
+style = 'fg:red bold'
+format = '[ ✘ $status ]($style)'
