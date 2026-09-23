@@ -1,6 +1,8 @@
 # Starship Themes
 
-![Amethyst Night theme preview](assets/previews/amethyst-night.png)
+<p align="center">
+  <img src="assets/logo.svg" alt="Starship Themes logo" width="140">
+</p>
 
 A collection of custom themes for [Starship](https://starship.rs). Each theme is distributed as a standalone TOML file, so you can install one without copying the rest of the repository.
 
