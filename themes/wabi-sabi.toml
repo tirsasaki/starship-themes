@@ -1,28 +1,26 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = true
-palette = 'neon_shogun'
+palette = 'wabi_sabi'
 
 format = """
-[╭─](fg:dim)[](fg:crimson)$os$username[](fg:crimson bg:surface)$directory[](bg:surface fg:crimson)$git_branch$git_status[](fg:crimson)
+[╭─](fg:dim)[](fg:indigo)$os$username[](fg:indigo bg:surface)$directory[](bg:surface fg:indigo)$git_branch$git_status[](fg:indigo)
 [╰─](fg:dim)$character"""
 right_format = "$status$cmd_duration$time"
 
-[palettes.neon_shogun]
-black      = '#0C0A0D'
-surface    = '#1C1518'
-overlay    = '#2A1D22'
-foreground = '#E9DCCB'
-dim        = '#6E5A60'
-crimson    = '#8C2F3B'
-blood      = '#5E1F26'
-gold       = '#C4964F'
-pink       = '#B97896'
-cyan       = '#5FA39C'
-green      = '#7FA88C'
+[palettes.wabi_sabi]
+black      = '#14161C'
+surface    = '#1E212B'
+overlay    = '#2A2E3A'
+foreground = '#D9D3C7'
+dim        = '#6B7280'
+indigo     = '#5B7C99'
+matcha     = '#8FA37E'
+terracotta = '#B5615A'
+bamboo     = '#B8A369'
 
 [os]
 disabled = false
-style = 'bg:crimson fg:foreground bold'
+style = 'bg:indigo fg:foreground bold'
 format = '[ $symbol ]($style)'
 
 [os.symbols]
@@ -73,12 +71,12 @@ Zorin = ''
 
 [username]
 show_always = true
-style_user = 'bg:crimson fg:foreground bold'
-style_root = 'bg:gold fg:black bold'
+style_user = 'bg:indigo fg:foreground bold'
+style_root = 'bg:terracotta fg:foreground bold'
 format = '[( $user )]($style)'
 
 [directory]
-style = 'bg:surface fg:gold bold'
+style = 'bg:surface fg:bamboo bold'
 format = '[( 󰉋 $path )]($style)'
 truncation_length = 3
 truncation_symbol = '…/'
@@ -86,11 +84,11 @@ read_only = ' 󰌾'
 
 [git_branch]
 symbol = '󰘬 '
-style = 'bg:crimson fg:foreground bold'
+style = 'bg:indigo fg:foreground bold'
 format = '[( $symbol$branch )]($style)'
 
 [git_status]
-style = 'bg:surface fg:pink bold'
+style = 'bg:surface fg:terracotta bold'
 format = '[$all_status$ahead_behind ]($style)'
 conflicted = '󰞇 '
 ahead = '⇡${count} '
@@ -105,7 +103,7 @@ stashed = '󰏗${count} '
 
 [cmd_duration]
 min_time = 1500
-style = 'fg:cyan bold'
+style = 'fg:matcha bold'
 format = '[ 󰔟 $duration ]($style)'
 
 [time]
@@ -115,11 +113,11 @@ style = 'fg:dim'
 format = '[  󰥔 $time ]($style)'
 
 [character]
-success_symbol = '[刀](bold fg:crimson)'
-error_symbol = '[刀](bold fg:blood)'
-vicmd_symbol = '[侍](bold fg:cyan)'
+success_symbol = '[刀](bold fg:matcha)'
+error_symbol = '[刀](bold fg:terracotta)'
+vicmd_symbol = '[侍](bold fg:indigo)'
 
 [status]
 disabled = false
-style = 'fg:blood bold'
+style = 'fg:terracotta bold'
 format = '[✘ $status ]($style)'
