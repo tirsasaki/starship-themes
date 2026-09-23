@@ -3,7 +3,7 @@
 set -eu
 
 REPOSITORY="tirsasaki/starship-themes"
-DEFAULT_THEME="neon-shogun"
+DEFAULT_THEME="amethyst-night"
 BASE_URL="${STARSHIP_THEMES_BASE_URL:-https://raw.githubusercontent.com/${REPOSITORY}/main}"
 CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}"
 CONFIG_FILE="$CONFIG_DIR/starship.toml"
