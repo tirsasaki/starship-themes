@@ -3,13 +3,14 @@ add_newline = true
 palette = 'neon_shogun'
 
 format = """
-[╭─](fg:dim)[](fg:magenta)$os$username[](fg:magenta bg:surface)$directory[](fg:surface bg:blue)$git_branch$git_status[](fg:blue)
+[╭─](fg:dim)[](fg:magenta)$os$username[](fg:magenta bg:surface)$directory[](bg:surface fg:blue)$git_branch$git_status[](fg:blue)
 [╰─](fg:dim)$character"""
 right_format = "$status$cmd_duration$time"
 
 [palettes.neon_shogun]
 black = '#16161E'
 surface = '#24283B'
+overlay = '#2F3549'
 foreground = '#C0CAF5'
 dim = '#565F89'
 magenta = '#BB9AF7'
@@ -17,7 +18,9 @@ blue = '#7AA2F7'
 cyan = '#7DCFFF'
 green = '#9ECE6A'
 yellow = '#E0AF68'
+orange = '#FF9E64'
 red = '#F7768E'
+pink = '#F7A8CC'
 
 [os]
 disabled = false
@@ -104,7 +107,7 @@ stashed = '󰏗${count} '
 
 [cmd_duration]
 min_time = 1500
-style = 'fg:yellow'
+style = 'fg:orange bold'
 format = '[ 󰔟 $duration]($style)'
 
 [time]
