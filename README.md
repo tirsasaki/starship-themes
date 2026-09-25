@@ -1,8 +1,6 @@
 # Starship Themes
 
-<p align="center">
-  <img src="assets/logo-horizontal.svg" alt="Starship Themes" width="420">
-</p>
+<p align="center"> <img src="assets/logo-horizontal.svg" alt="Starship Themes" width="420"> </p> <p align="center"> <a href="LICENSE"><img src="https://img.shields.io/github/license/tirsasaki/starship-themes?style=flat-square" alt="License"></a> <a href="https://github.com/tirsasaki/starship-themes/stargazers"><img src="https://img.shields.io/github/stars/tirsasaki/starship-themes?style=flat-square" alt="Stars"></a> <a href="https://github.com/tirsasaki/starship-themes/commits/main"><img src="https://img.shields.io/github/last-commit/tirsasaki/starship-themes?style=flat-square" alt="Last commit"></a> <a href="https://starship.rs"><img src="https://img.shields.io/badge/built%20for-Starship-DD0B78?style=flat-square" alt="Built for Starship"></a> <img src="https://img.shields.io/badge/shell-zsh%20%7C%20bash%20%7C%20fish-blue?style=flat-square" alt="Shell support"> </p>
 
 A collection of custom themes for [Starship](https://starship.rs). Each theme is distributed as a standalone TOML file, so you can install one without copying the rest of the repository.
 
